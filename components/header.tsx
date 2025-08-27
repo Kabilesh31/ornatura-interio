@@ -107,7 +107,8 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden h-10 w-10 rounded-lg hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+            className="lg:hidden fixed top-0 left-79 h-10 w-10  rounded-lg bg-grey text-chart-2 hover:bg-primary/10 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
+
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -116,7 +117,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute left-0 right-0 top-full mt-2 mx-4 mobile-nav-backdrop rounded-xl shadow-2xl slide-down overflow-hidden">
+          <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%]right-0 top-full mt-2 mx-4 mobile-nav-backdrop rounded-xl shadow-2xl slide-down overflow-hidden">
             <nav className="flex flex-col p-4">
               {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => (
                 <a
@@ -132,7 +133,7 @@ export function Header() {
                       ? "/gallery"
                       : "#contact"
                   }
-                  className="px-4 py-3 text-sm font-medium hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 hover-lift"
+                  className="px-2 py-3 text-sm font-medium hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 hover-lift"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item}
