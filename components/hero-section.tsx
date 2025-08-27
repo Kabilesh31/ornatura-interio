@@ -8,6 +8,14 @@ export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [bgAttachment, setBgAttachment] = useState<'fixed' | 'scroll'>('scroll');
+
+useEffect(() => {
+  // Only runs on client
+  if (window.innerWidth > 768) {
+    setBgAttachment('fixed');
+  }
+}, []);
 
   const heroContent = [
     {
@@ -100,13 +108,13 @@ export function HeroSection() {
               key={index}
               className="absolute inset-0 transition-transform duration-1000 ease-in-out"
               style={{
-                backgroundImage: `url('${content.image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll",
-                transform: `translateY(${translateY})`,
-                zIndex: isActive || isNext ? 2 : 1,
-              }}
+  backgroundImage: `url('${content.image}')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundAttachment: bgAttachment, // use state here
+  transform: `translateY(${translateY})`,
+  zIndex: isActive || isNext ? 2 : 1,
+}}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
             </div>
