@@ -34,15 +34,15 @@ export function Header() {
       )}
     >
       <div className="container-responsive py-3 sm:py-4">
-        <div className="flex items-center justify-start gap-70">
+        <div className="flex items-center justify-start gap-80">
           {/* Logo */}
          <div className="flex items-center space-x-3 group">
-  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg glow-effect transition-all duration-300 group-hover:scale-110">
+  {/* <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg glow-effect transition-all duration-300 group-hover:scale-110">
     <Sparkles className="text-primary-foreground w-4 h-4 sm:w-5 sm:h-5" />
-  </div>
+  </div> */}
   <span
     className={cn(
-      "text-xl sm:text-2xl font-bold transition-colors duration-300",
+      "text-xl sm:text-2xl ml-3 font-bold transition-colors duration-300",
       isScrolled ? "text-gray-500" : "text-white"
     )}
   >

@@ -91,7 +91,7 @@ export default function ServicesPage() {
 
         {/* Services Section */}
         <section className="py-16">
-          <div className="container-responsive">
+          <div className="container-responsive max-w-6xl mx-auto">
             <div className="space-y-24">
               {services.map((service, index) => (
                 <div
