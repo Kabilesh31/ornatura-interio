@@ -34,7 +34,7 @@ export function Header() {
       )}
     >
       <div className="container-responsive py-3 sm:py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-start gap-70">
           {/* Logo */}
          <div className="flex items-center space-x-3 group">
   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg glow-effect transition-all duration-300 group-hover:scale-110">
@@ -51,16 +51,15 @@ export function Header() {
 </div>
 
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex">
+          <NavigationMenu className="hidden lg:flex flex-1 justify-center">
             <NavigationMenuList className="space-x-2">
-              {["Home", "About Us", "Services", "Gallery"].map((item, idx) => (
+              {["Home",  "Services", "Gallery"].map((item, idx) => (
                 <NavigationMenuItem key={idx}>
                   <NavigationMenuLink
                     href={
                       item === "Home"
                         ? "/"
-                        : item === "About Us"
-                        ? "#about"
+                        
                         : item === "Services"
                         ? "/services"
                         : "/gallery"
@@ -74,7 +73,18 @@ export function Header() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
-
+<NavigationMenuItem>
+  <Link
+    href="/#about"
+    className={cn(
+      "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none hover:scale-105",
+      isScrolled ? "text-gray-800" : "text-white"
+    )}
+    onClick={() => setIsMobileMenuOpen(false)}
+  >
+    About Us
+  </Link>
+</NavigationMenuItem>
               <NavigationMenuItem>
   <Link
     href="/#contact"
@@ -91,23 +101,13 @@ export function Header() {
           </NavigationMenu>
 
           {/* Get Quote Button */}
-          <Button
           
-            className="hidden lg:flex text-sm font-semibold px-6 py-2 h-11 bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105"
-            onClick={() => {
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-              setIsMobileMenuOpen(false)
-            }}
-          >
-            Get Quote
-            
-          </Button>
 
           {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden fixed top-0 left-79 h-10 w-10  rounded-lg bg-grey text-chart-2 hover:bg-primary/10 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
+            className="lg:hidden fixed top-2 left-82 h-10 w-10  rounded-lg bg-grey text-chart-2 hover:bg-primary/10 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -117,40 +117,32 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%]right-0 top-full mt-2 mx-4 mobile-nav-backdrop rounded-xl shadow-2xl slide-down overflow-hidden">
-            <nav className="flex flex-col p-4">
-              {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => (
-                <a
-                  key={idx}
-                  href={
-                    item === "Home"
-                      ? "/"
-                      : item === "About Us"
-                      ? "#about"
-                      : item === "Services"
-                      ? "/services"
-                      : item === "Gallery"
-                      ? "/gallery"
-                      : "#contact"
-                  }
-                  className="px-2 py-3 text-sm font-medium hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 hover-lift"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
+  <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%]right-0 top-full mt-2 mx-4 mobile-nav-backdrop rounded-xl shadow-2xl slide-down overflow-hidden">
+    <nav className="flex flex-col p-4">
+      {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => (
+        <a
+          key={idx}
+          href={
+            item === "Home"
+              ? "/"
+              : item === "About Us"
+              ? "/#about"
+              : item === "Services"
+              ? "/services"
+              : item === "Gallery"
+              ? "/gallery"
+              : "/#contact"
+          }
+          className="px-2 py-3 text-sm font-medium hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 hover-lift"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          {item}
+        </a>
+      ))}
+    </nav>
+  </div>
+)}
 
-              <div className="px-4 pt-4 border-t border-primary/10 mt-2">
-                <Button
-                  className="w-full bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Quote
-                </Button>
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   )
