@@ -187,7 +187,7 @@ export function ContactSection() {
                 </Button>
               </form>
             </CardContent>
-             <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-primary/10 w-175 mt-5 ml-2">
+      <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-primary/10 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-5 mx-auto">
   <div className="h-52 bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
       <div className="bg-background/90 backdrop-blur-md rounded-lg p-4 shadow-xl border border-primary/20 text-center">
@@ -200,6 +200,7 @@ export function ContactSection() {
     </div>
   </div>
 </Card>
+
 
           </Card>
           
