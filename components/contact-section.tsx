@@ -31,16 +31,21 @@ export function ContactSection() {
 
   const contactInfo = [
     {
-      icon: MapPin,
-      title: "Visit Our Studio",
-      details: ["347, DS Complex, Nehru Street", "Ramnagar Street, Coimbatore - 641009."],
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-    },
+    icon: MapPin,
+    title: "Visit Our Studio",
+    details: [
+      "347, DS Complex, Nehru Street",
+      "Ramnagar Street",
+      "Coimbatore - 641009",
+      "Tamil Nadu, India",
+    ],
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+  },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+9194 8743 5050"],
+      details: ["+91 98765 43210"],
       color: "text-green-500",
       bgColor: "bg-green-500/10",
     },
@@ -137,7 +142,7 @@ export function ContactSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 border-primary/20 hover:border-primary/40"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+91 98765 43210"
                     />
                   </div>
                   <div className="space-y-2">

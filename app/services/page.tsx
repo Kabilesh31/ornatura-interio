@@ -77,7 +77,7 @@ export default function ServicesPage() {
         <Header />
 
         {/* Hero */}
-        <section className="pt-24 pb-10 md:pb-12">
+        <section className="pt-24 pb-10 md:pb-12  px-4">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -99,7 +99,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Workflow strip */}
-        <section className="relative py-10 md:py-14">
+        <section className="relative py-10 md:py-14  px-4">
           <div className="container mx-auto px-4">
             <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
               {/* connecting line */}
@@ -145,7 +145,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Service detail blocks */}
-       <section className="py-16">
+       <section className="py-16  px-4">
   <div className="container-responsive max-w-6xl mx-auto">
     <div className="space-y-24">
       {services.map((service, index) => (
@@ -196,7 +196,7 @@ export default function ServicesPage() {
 </section>
 
         {/* CTA */}
-        <section className="py-16 bg-gradient-to-br from-[color:var(--primary)]/5 via-[color:var(--background)] to-[color:var(--primary)]/5">
+        <section className="py-16 bg-gradient-to-br from-[color:var(--primary)]/5 via-[color:var(--background)] to-[color:var(--primary)]/5  px-4">
           <div className="container-responsive text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
               Ready to Transform Your Space?

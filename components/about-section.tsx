@@ -58,7 +58,7 @@ export function AboutSection() {
         About Ornatura Interio
       </h2>
 
-      <div className="max-w-3xl mx-auto space-y-5.5 text-lg text-white leading-relaxed text-justify">
+      <div className="max-w-3xl mx-auto  space-y-5.5 text-lg text-white leading-relaxed text-justify">
         <p>
           At <span className="font-semibold">Ornatura Interior</span>, we are passionate about transforming
           spaces into timeless works of art. As one of Coimbatore’s leading architectural and interior design firms,
