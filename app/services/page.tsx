@@ -68,11 +68,11 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen relative bg-[color:var(--background)]">
-  {/* dimmed background image */}
-  <div
-    className="absolute inset-0 opacity-10 bg-fixed bg-center bg-cover"
-    style={{ backgroundImage: "url('/service/BG5.png')" }}
-  />
+      {/* Dimmed background image */}
+      <div
+        className="absolute inset-0 opacity-10 bg-fixed bg-center bg-cover pointer-events-none"
+        style={{ backgroundImage: "url('/service/BG5.png')" }}
+      />
       <div className="relative z-10">
         <Header />
 
@@ -128,9 +128,9 @@ export default function ServicesPage() {
                       </span>
 
                       {/* title */}
-                      <h4 className="mt-1 text-sm font-bold leading-snug text-[color:var(--foreground)]">
-                        {s.title}
-                      </h4>
+                      <h4 className="mt-0 text-[12px] sm:text-[14px] md:text-sm font-bold leading-snug text-[color:var(--foreground)] text-center">
+  {s.title}
+</h4>
                     </div>
 
                     {/* connector dot */}
@@ -145,57 +145,55 @@ export default function ServicesPage() {
         </section>
 
         {/* Service detail blocks */}
-        <section className="py-16">
-          <div className="container-responsive max-w-6xl mx-auto">
-            <div className="space-y-24">
-              {services.map((service, index) => (
-                <div
-                  key={service.id}
-                  className={`grid lg:grid-cols-2 gap-10 items-center ${
-                    index % 2 === 0 ? "" : "lg:grid-flow-col-dense"
-                  }`}
-                >
-                  {/* text */}
-                  <div className={`space-y-6 ${index % 2 === 0 ? "" : "lg:col-start-2"}`}>
-                    <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-3 py-1 rounded-full text-sm font-medium">
-                      Step {index + 1}
-                    </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--foreground)]">
-                      {service.title}
-                    </h2>
-                    <p className="text-sm text-[color:var(--muted-foreground)] leading-relaxed">
-                      {service.description}
-                    </p>
+       <section className="py-16">
+  <div className="container-responsive max-w-6xl mx-auto">
+    <div className="space-y-24">
+      {services.map((service, index) => (
+        <div
+          key={service.id}
+          className={`grid lg:grid-cols-2 gap-10 items-center ${
+            index % 2 === 0 ? "" : "lg:grid-flow-col-dense"
+          }`}
+        >
+          {/* Text */}
+          <div className={`space-y-6 ${index % 2 === 0 ? "" : "lg:col-start-2"}`}>
+            <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-3 py-1 rounded-full text-sm font-medium">
+              Step {index + 1}
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--foreground)]">
+              {service.title}
+            </h2>
+            <p className="text-sm text-[color:var(--muted-foreground)] leading-relaxed">
+              {service.description}
+            </p>
 
-                    <div className="grid grid-cols-2 gap-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-[color:var(--primary)] flex-shrink-0" />
-                          <span className="text-sm text-[color:var(--muted-foreground)]">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* image */}
-                  <div className={`${index % 2 === 0 ? "" : "lg:col-start-1"}`}>
-                    <div className="relative group max-w-2xl mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--primary)]/0 to-[color:var(--primary)]/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500" />
-                      <div className="relative w-full h-[300px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 hover-lift">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="h-[300px] object-contain transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
-                    </div>
-                  </div>
+            <div className="grid grid-cols-2 gap-3">
+              {service.features.map((feature, featureIndex) => (
+                <div key={featureIndex} className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-[color:var(--primary)] flex-shrink-0" />
+                  <span className="text-sm text-[color:var(--muted-foreground)]">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+
+          {/* Image */}
+          <div className={`${index % 2 === 0 ? "" : "lg:col-start-1"}`}>
+            <div className="relative group max-w-2xl mx-auto">
+              <div className="relative w-full h-[300px] flex items-center justify-center overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border border-[color:var(--primary)]/20">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="h-[300px] object-contain transition-transform duration-500"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* CTA */}
         <section className="py-16 bg-gradient-to-br from-[color:var(--primary)]/5 via-[color:var(--background)] to-[color:var(--primary)]/5">
@@ -210,7 +208,7 @@ export default function ServicesPage() {
             <Link href="/#contact">
               <Button
                 size="lg"
-                className="bg-[color:var(--primary)] hover:bg-[color:var(--primary)/90] shadow-lg glow-effect transition-all duration-300 hover:scale-105"
+                className="bg-[color:var(--primary)] hover:bg-primary shadow-lg glow-effect transition-all duration-300 hover:scale-105"
               >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />

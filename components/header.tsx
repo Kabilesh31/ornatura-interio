@@ -27,16 +27,20 @@ export function Header() {
 
   const pathname = usePathname();
   const isServicesPage = pathname === "/services";
+  const isGallery = pathname === "/gallery"
 
   // function to decide nav link style
   const getNavStyle = () => {
-    if (isServicesPage) {
-      return "text-maroon-300 hover:text-maroon-600 hover:bg-pink-100/20"
-    }
-    return isScrolled
-      ? "text-gray-800 hover:text-primary hover:bg-gray-100"
-      : "text-white hover:text-yellow-300 hover:bg-primary/20"
+  // If we are on Services or Gallery page
+  if (isServicesPage || isGallery) {
+    return "text-gray-500 hover:text-primary hover:bg-primary-s/20";
   }
+
+  // For other pages, change color on scroll
+  return isScrolled
+    ? "text-gray-800 hover:text-primary hover:bg-gray-100"
+    : "text-white hover:text-yellow-300 hover:bg-primary/20";
+};
 
   return (
     <header
@@ -146,35 +150,39 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%] mx-4 mobile-nav-backdrop rounded-xl shadow-2xl slide-down overflow-hidden">
-            <nav className="flex flex-col p-4">
-              {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => {
-                const href =
-                  item === "Home"
-                    ? "/"
-                    : item === "About Us"
-                    ? "/#about"
-                    : item === "Services"
-                    ? "/services"
-                    : item === "Gallery"
-                    ? "/gallery"
-                    : "/#contact"
-                return (
-                  <a
-                    key={idx}
-                    href={href}
-                    className={cn(
-                      "px-2 py-3 text-sm font-medium rounded-lg transition-all duration-300 hover-lift",
-                      isServicesPage
-                        ? "text-sandal-500 hover:text-pink-200 hover:bg-pink-100/20"
-                        : "hover:bg-primary/10 hover:text-primary"
-                    )}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </a>
-                )
-              })}
+  <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%] mx-4 rounded-xl shadow-2xl slide-down overflow-hidden bg-white">
+    <nav className="flex flex-col p-4">
+      {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => {
+        const href =
+          item === "Home"
+            ? "/"
+            : item === "About Us"
+            ? "/#about"
+            : item === "Services"
+            ? "/services"
+            : item === "Gallery"
+            ? "/gallery"
+            : "/#contact"
+
+        const mobileTextClass =
+          isServicesPage || isGallery
+            ? "text-gray-800 hover:text-primary hover:bg-primary/10"
+            : "text-gray-800 hover:text-primary hover:bg-gray-100/10"
+
+        return (
+          <a
+            key={idx}
+            href={href}
+            className={cn(
+              "px-2 py-3 text-sm font-medium rounded-lg transition-all duration-300 hover-lift",
+              mobileTextClass
+            )}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            {item}
+          </a>
+        )
+      })}
             </nav>
           </div>
         )}
