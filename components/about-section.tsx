@@ -37,66 +37,80 @@ const achievements = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="py-20 bg-muted/30 bg-cover  bg-center bg-fixed opacity-50"
+    
+  style={{ backgroundImage: "url('/your-image.jpg') "  }}>
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-  <h2 className="text-3xl md:text-4xl font-bold mb-6">About Ornatura Interio</h2>
+     <div
+  className="relative py-20 bg-cover bg-center bg-fixed"
+  style={{ backgroundImage: "url('/service/bg5.png')" }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
 
-  <div className="max-w-3xl mx-auto space-y-2.5 text-lg text-muted-foreground leading-relaxed text-justify">
-    <p>
-      At <span className="font-semibold">Ornatura Interior</span>, we are passionate about transforming
-      spaces into timeless works of art. As one of Coimbatore’s leading architectural and interior design firms,
-      we specialize in crafting bespoke solutions that balance creativity, precision, and functionality.
-    </p>
+  <div className="relative container mx-auto px-4">
+    {/* Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+        About Ornatura Interio
+      </h2>
 
-    <p>
-      Our portfolio spans luxury residences, commercial spaces, institutional projects, and hospitality ventures,
-      each tailored to meet the unique needs and aspirations of our clients. With expertise in space planning,
-      problem-solving, and thoughtful renovations, we simplify complex design challenges and present curated options
-      that truly bring your vision to life.
-    </p>
+      <div className="max-w-3xl mx-auto space-y-2.5 text-lg text-gray-100 leading-relaxed text-justify">
+        <p>
+          At <span className="font-semibold">Ornatura Interior</span>, we are passionate about transforming
+          spaces into timeless works of art. As one of Coimbatore’s leading architectural and interior design firms,
+          we specialize in crafting bespoke solutions that balance creativity, precision, and functionality.
+        </p>
 
-    <p>
-      By blending modern sophistication with traditional elegance, we create interiors that are not only visually stunning
-      but also deeply personal and practical. Every project we undertake is a reflection of our client’s individuality—
-      designed to inspire, endure, and tell a distinct story.
-    </p>
+        <p>
+          Our portfolio spans luxury residences, commercial spaces, institutional projects, and hospitality ventures,
+          each tailored to meet the unique needs and aspirations of our clients. With expertise in space planning,
+          problem-solving, and thoughtful renovations, we simplify complex design challenges and present curated options
+          that truly bring your vision to life.
+        </p>
 
-    <p>
-      At <span className="font-semibold">Ornatura Interior</span>, we don’t just design spaces—
-      we craft <span className="italic">experiences</span>.
-    </p>
+        <p>
+          By blending modern sophistication with traditional elegance, we create interiors that are not only visually stunning
+          but also deeply personal and practical. Every project we undertake is a reflection of our client’s individuality—designed
+          to inspire, endure, and tell a distinct story.
+        </p>
 
-    <p className="font-semibold">We create spaces with purpose.</p>
-<p className="font-semibold">We create stories with soul.</p>
-<p className="font-semibold">At Ornatura, we blend elegance and emotion</p>
-<p className="font-semibold">to craft interiors that truly define you.</p>
+        <p>
+          At <span className="font-semibold">Ornatura Interior</span>, we don’t just design spaces—
+          we craft <span className="italic">experiences</span>.
+        </p>
+      </div>
+    </div>
+
+    {/* Achievements */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-25 mb-20">
+      {achievements.map((achievement) => {
+        const Icon = achievement.icon
+        return (
+          <Card
+            key={achievement.label}
+            className="text-center hover:shadow-lg transition-shadow duration-300 bg-white/50 backdrop-blur-sm"
+          >
+            <CardContent className="p-6">
+              <div className="w-12 h-12 bg-primary/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Icon className="w-6 h-6 text-muted" />
+              </div>
+              <div className="text-2xl font-bold text-muted mb-2">{achievement.value}</div>
+              <div className="text-sm text-muted-primary">{achievement.label}</div>
+            </CardContent>
+          </Card>
+        )
+      })}
+    </div>
   </div>
-</div>
-
-
-        {/* Achievements */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {achievements.map((achievement, index) => {
-            const Icon = achievement.icon
-            return (
-              <Card key={achievement.label} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-2">{achievement.value}</div>
-                  <div className="text-sm text-muted-foreground">{achievement.label}</div>
-                </CardContent>
-              </Card>
-            )
-          })}
+            
+          
         </div>
 
         {/* Team Section */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-12">Meet Our Team</h3>
+          <h3 className="text-2xl font-bold text-center mt-5 mb-12">Meet Our Team</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <Card

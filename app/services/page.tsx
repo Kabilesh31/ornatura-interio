@@ -2,6 +2,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Sparkles } from "lucide-react"
+import Link from "next/link"
+
 
 export default function ServicesPage() {
   const services = [
@@ -76,7 +78,7 @@ export default function ServicesPage() {
                 Our Services
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
+              <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
                 Comprehensive Interior Design Services
               </h2>
 
@@ -96,15 +98,15 @@ export default function ServicesPage() {
               {services.map((service, index) => (
                 <div
                   key={service.id}
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 0 ? "" : "lg:grid-flow-col-dense"}`}
+                  className={`grid lg:grid-cols-2 gap-10 items-center ${index % 2 === 0 ? "" : "lg:grid-flow-col-dense"}`}
                 >
                   {/* Text Content */}
                   <div className={`space-y-6 ${index % 2 === 0 ? "" : "lg:col-start-2"}`}>
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
                       Step {index + 1}
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground">{service.title}</h2>
-                    <p className="text-lg text-muted-foreground leading-relaxed">{service.description}</p>
+                    <h2 className="text-3xl md:text-3xl font-bold text-foreground">{service.title}</h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                     <div className="grid grid-cols-2 gap-3">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-2">
@@ -113,21 +115,21 @@ export default function ServicesPage() {
                         </div>
                       ))}
                     </div>
-                    <Button className="group bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105">
+                    {/* <Button className="group bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105">
                       Learn More
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                    </Button> */}
                   </div>
 
                   {/* Image */}
                   <div className={`${index % 2 === 0 ? "" : "lg:col-start-1"}`}>
                     <div className="relative group max-w-2xl mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-                      <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 hover-lift">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+                      <div className="relative w-full h-[300px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 hover-lift">
                         <img
                           src={service.image}
                           alt={service.title}
-                          className="h-[400px] object-contain transition-transform duration-500 group-hover:scale-105"
+                          className="h-[300px] object-contain transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
@@ -149,13 +151,15 @@ export default function ServicesPage() {
               Let's discuss your vision and create something extraordinary together. Our team is ready to bring your dream
               interior to life.
             </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105"
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <Link href="/#contact">
+  <Button
+    size="lg"
+    className="bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105"
+  >
+    Start Your Project
+    <ArrowRight className="w-5 h-5 ml-2" />
+  </Button>
+</Link>
           </div>
         </section>
 

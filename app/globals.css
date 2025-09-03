@@ -5,9 +5,9 @@
 
 :root {
   /* Updated color palette to use #F1E3D3 and #6B705C */
-  --background: #ffffff;
+  --background: #d9d9d9;
   --foreground: #493737d8;
-  --card: #f1e3d3;
+  --card:#d2c8c8;
   --card-foreground: #2d2d2d;
   --popover: #ffffff;
   --popover-foreground: #2d2d2d;

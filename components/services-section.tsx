@@ -3,32 +3,32 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Palette, Home, Wrench, Building } from "lucide-react"
+import { Palette, Paintbrush,LayoutDashboard,Home, Wrench, Building,Hammer,Landmark,Feather,LayoutGrid,Layers, } from "lucide-react"
 
 const services = [
   {
-    icon: Palette,
+    icon: Feather,
     title: "Interior Styling",
     description:
       "Details make the difference. Through curated styling, we add warmth, character, and soul—layering colors, textures, and décor to transform a space into a personal statement of style.",
     features: ["Color Consultation", "Furniture Selection", "Accessory Styling", "Space Planning"],
   },
   {
-    icon: Home,
+    icon: LayoutGrid,
     title: "Interior Design Studio",
     description:
       "At Ornatura Interior, design begins with a vision. Our studio specializes in creating bespoke interiors that seamlessly combine functionality with timeless beauty, ensuring every space reflects the individuality of those who live in it.",
     features: ["3D Visualization", "Custom Furniture", "Lighting Design", "Project Management"],
   },
   {
-    icon: Wrench,
+    icon: Layers,
     title: "Renovation",
     description:
       "We breathe new life into existing spaces with thoughtful renovations. By blending modern sophistication with practical solutions, we turn design hurdles into opportunities, making old spaces feel brand new.",
     features: ["Space Reconfiguration", "Kitchen & Bath Remodel", "Flooring Solutions", "Built-in Storage"],
   },
   {
-    icon: Building,
+    icon: Landmark,
     title: "Architecture",
     description:
       "Every great design starts with a strong foundation. Our architectural expertise ensures innovation, precision, and structural elegance, shaping spaces that are built to inspire and endure",
@@ -63,7 +63,7 @@ export function ServicesSection() {
     <section ref={sectionRef} className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 fade-in-up">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 fade-in-up">Our Journey</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto fade-in-up">
             We offer comprehensive interior design services tailored to transform your vision into reality
           </p>
@@ -99,12 +99,12 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
-                  <Button
+                  {/* <Button
                     variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors bg-transparent"
                   >
                     Learn More
-                  </Button>
+                  </Button> */}
                 </CardContent>
               </Card>
             )

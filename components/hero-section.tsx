@@ -20,28 +20,28 @@ export function HeroSection() {
 
   const heroContent = [
     {
-      image: "/luxury-beige-olive-living-room.png",
+      image: "/hero1.jpg",
       title: "Transform Your Living Space",
       subtitle: "INTERIOR DESIGN AGENCY",
       description:
         "Right design and right ideas matter a lot of in interior design business. a style that makes a statement.",
     },
     {
-      image: "/luxury-modern-living-room.png",
+      image: "/hero2.jpg",
       title: "Modern Luxury Interiors",
       subtitle: "CONTEMPORARY DESIGN",
       description:
         "Creating sophisticated spaces that blend functionality with aesthetic excellence for modern living.",
     },
     {
-      image: "/luxury-penthouse-city-view.png",
+      image: "/hero3.jpg",
       title: "Urban Sophistication",
       subtitle: "PENTHOUSE DESIGN",
       description:
         "Elevating city living with premium materials and breathtaking views that inspire daily life.",
     },
     {
-      image: "/cozy-family-living-room.png",
+      image: "/hero4.jpg",
       title: "Cozy Family Spaces",
       subtitle: "RESIDENTIAL COMFORT",
       description:
@@ -162,13 +162,14 @@ export function HeroSection() {
             <p className="text-sm tracking-widest text-white/80 mb-2">{currentContent.subtitle}</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               {currentContent.title.split(" ").map((word, index, arr) => (
-                <span
-                  key={index}
-                  className={index === arr.length - 1 ? "block text-primary glow-effect" : ""}
-                >
-                  {word}{" "}
-                </span>
-              ))}
+  <span
+    key={index}
+    className={index === arr.length - 1 ? "block text-neutral-400 glow-effect" : ""}
+  >
+    {word}{" "}
+  </span>
+))}
+
             </h1>
           </div>
 
