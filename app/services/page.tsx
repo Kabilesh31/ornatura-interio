@@ -71,7 +71,7 @@ export default function ServicesPage() {
       {/* Dimmed background image */}
       <div
         className="absolute inset-0 opacity-10 bg-fixed bg-center bg-cover pointer-events-none"
-        style={{ backgroundImage: "url('/service/BG5.png')" }}
+        style={{ backgroundImage: "url('/service/bg5.png')" }}
       />
       <div className="relative z-10">
         <Header />

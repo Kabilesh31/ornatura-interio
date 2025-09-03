@@ -71,7 +71,7 @@ export default function GalleryPage() {
       {/* Dimmed Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none"
-        style={{ backgroundImage: "url('/service/BG5.png')" }}
+        style={{ backgroundImage: "url('/service/bg5.png')" }}
       />
       <div className="absolute inset-0 bg-[color:var(--background)]/70 pointer-events-none" />
 
