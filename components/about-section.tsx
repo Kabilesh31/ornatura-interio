@@ -37,26 +37,28 @@ const achievements = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-muted/30 bg-cover  bg-center bg-fixed opacity-50"
+    <section id="about" className="py-20 bg-muted/30 bg-cover "
     
   style={{ backgroundImage: "url('/your-image.jpg') "  }}>
       <div className="container mx-auto px-4">
         {/* Header */}
      <div
-  className="relative py-20 bg-cover bg-center bg-fixed"
-  style={{ backgroundImage: "url('/service/bg5.png')" }}
+  className="relative py-20 bg-cover bg-center bg-fixed  bg-center bg-fixed opacity-30"
+  style={{
+    backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/service/bg5.png')",
+  }}
 >
   {/* Overlay */}
-  <div className="absolute inset-0 bg-black/50"></div>
+  <div className="absolute inset-0 bg-black/50 "></div>
 
-  <div className="relative container mx-auto px-4">
+  <div className="relative container mx-auto px-4 ">
     {/* Header */}
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+    <div className="text-center mb-6">
+      <h2 className="text-4xl md:text-4xl font-bold mb-16 text-white">
         About Ornatura Interio
       </h2>
 
-      <div className="max-w-3xl mx-auto space-y-2.5 text-lg text-gray-100 leading-relaxed text-justify">
+      <div className="max-w-3xl mx-auto space-y-5.5 text-lg text-white leading-relaxed text-justify">
         <p>
           At <span className="font-semibold">Ornatura Interior</span>, we are passionate about transforming
           spaces into timeless works of art. As one of Coimbatore’s leading architectural and interior design firms,
@@ -84,7 +86,7 @@ export function AboutSection() {
     </div>
 
     {/* Achievements */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-25 mb-20">
+    {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-25 mb-20">
       {achievements.map((achievement) => {
         const Icon = achievement.icon
         return (
@@ -102,14 +104,14 @@ export function AboutSection() {
           </Card>
         )
       })}
-    </div>
+    </div> */}
   </div>
             
           
         </div>
 
         {/* Team Section */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mt-5 mb-12">Meet Our Team</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
@@ -141,10 +143,10 @@ export function AboutSection() {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Company Story */}
-        <div className="bg-card rounded-lg p-8 md:p-12">
+        {/* <div className="bg-card rounded-lg p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-6">Our Story</h3>
@@ -169,7 +171,7 @@ export function AboutSection() {
               <img src="/interior-design-team.png" alt="Our team at work" className="rounded-lg shadow-lg" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

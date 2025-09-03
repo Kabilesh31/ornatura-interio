@@ -61,7 +61,7 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-background via-primary/5 to-secondary/5">
+    <section id="contact" className="py-20 bg-gradient-to-br from-card via-primary/5 to-secondary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-primary/20">

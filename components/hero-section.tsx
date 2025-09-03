@@ -34,7 +34,7 @@ export function HeroSection() {
         "Creating sophisticated spaces that blend functionality with aesthetic excellence for modern living.",
     },
     {
-      image: "/hero3.jpg",
+      image: "/bg5.jpg",
       title: "Urban Sophistication",
       subtitle: "PENTHOUSE DESIGN",
       description:
@@ -185,15 +185,15 @@ export function HeroSection() {
           }`}
         >
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover-lift glow-effect">
-            <div className="text-3xl font-bold text-primary mb-2">500+</div>
+            <div className="text-3xl font-bold text-secondary mb-2">500+</div>
             <div className="text-sm text-white/80">Projects Completed</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover-lift glow-effect">
-            <div className="text-3xl font-bold text-primary mb-2">15+</div>
+            <div className="text-3xl font-bold text-secondary mb-2">15+</div>
             <div className="text-sm text-white/80">Years Experience</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover-lift glow-effect">
-            <div className="text-3xl font-bold text-primary mb-2">98%</div>
+            <div className="text-3xl font-bold text-secondary mb-2">98%</div>
             <div className="text-sm text-white/80">Client Satisfaction</div>
           </div>
         </div>

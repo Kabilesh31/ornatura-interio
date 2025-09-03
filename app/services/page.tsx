@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 
-
 export default function ServicesPage() {
   const services = [
     {
@@ -57,32 +56,40 @@ export default function ServicesPage() {
     },
   ]
 
-  return (
-    <div 
-      className="min-h-screen relative bg-fixed bg-center bg-cover" 
-      style={{ backgroundImage: "url('/service/BG5.png')" }} // 🔥 Your background image
-    >
-      {/* 🔥 Overlay for readability */}
-      <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+  // Workflow circle gradients using CSS variables
+  const gradients = [
+    "from-blue-500 to-sky-400",
+    "from-violet-500 to-fuchsia-400",
+    "from-pink-500 to-rose-400",
+    "from-orange-500 to-amber-400",
+    "from-teal-500 to-emerald-400",
+    "from-indigo-500 to-purple-400",
+  ]
 
-      {/* Page Content */}
+  return (
+    <div className="min-h-screen relative bg-[color:var(--background)]">
+  {/* dimmed background image */}
+  <div
+    className="absolute inset-0 opacity-10 bg-fixed bg-center bg-cover"
+    style={{ backgroundImage: "url('/service/BG5.png')" }}
+  />
       <div className="relative z-10">
         <Header />
 
-        {/* Hero Section */}
-        <section className="pt-24 pb-16">
+        {/* Hero */}
+        <section className="pt-24 pb-10 md:pb-12">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4" />
                 Our Services
               </div>
 
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
+              <h2 className="text-2xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
                 Comprehensive Interior Design Services
               </h2>
 
-              <p className="text-lg md:text-xl text-foreground mb-8">
+              <p className="text-lg md:text-xl text-[color:var(--foreground)]">
                 From initial consultation to post-completion support, we guide you
                 through every step of your interior design journey with expertise
                 and care.
@@ -91,40 +98,89 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Section */}
+        {/* Workflow strip */}
+        <section className="relative py-10 md:py-14">
+          <div className="container mx-auto px-4">
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
+              {/* connecting line */}
+              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-[color:var(--muted)] via-[color:var(--secondary)] to-[color:var(--muted)] -z-10" />
+
+              {services.map((s, i) => (
+                <div key={s.id} className="md:w-1/6 w-full flex flex-col items-center text-center">
+                  <div
+                    className={`relative bg-gradient-to-r ${gradients[i % gradients.length]} p-[3px] rounded-full shadow-md transition-transform hover:scale-105`}
+                  >
+                    {/* inner circle */}
+                    <div className="relative w-36 h-36 md:w-50 md:h-50 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4">
+                      {/* number */}
+                      <span
+                        className={`hidden md:block absolute -left-6 -top-5 text-[92px] font-extrabold opacity-100 text-transparent bg-clip-text bg-gradient-to-r ${gradients[i % gradients.length]} drop-shadow-md`}
+                      >
+                        {i + 1}
+                      </span>
+
+                      {/* icon */}
+                      <img src={s.image} alt={`Step ${i + 1} icon`} className="w-12 h-12 object-contain mb-2" />
+
+                      {/* step label */}
+                      <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">
+                        Step {i + 1}
+                      </span>
+
+                      {/* title */}
+                      <h4 className="mt-1 text-sm font-bold leading-snug text-[color:var(--foreground)]">
+                        {s.title}
+                      </h4>
+                    </div>
+
+                    {/* connector dot */}
+                    <span
+                      className={`hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-r ${gradients[i % gradients.length]}`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Service detail blocks */}
         <section className="py-16">
           <div className="container-responsive max-w-6xl mx-auto">
             <div className="space-y-24">
               {services.map((service, index) => (
                 <div
                   key={service.id}
-                  className={`grid lg:grid-cols-2 gap-10 items-center ${index % 2 === 0 ? "" : "lg:grid-flow-col-dense"}`}
+                  className={`grid lg:grid-cols-2 gap-10 items-center ${
+                    index % 2 === 0 ? "" : "lg:grid-flow-col-dense"
+                  }`}
                 >
-                  {/* Text Content */}
+                  {/* text */}
                   <div className={`space-y-6 ${index % 2 === 0 ? "" : "lg:col-start-2"}`}>
-                    <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-3 py-1 rounded-full text-sm font-medium">
                       Step {index + 1}
                     </div>
-                    <h2 className="text-3xl md:text-3xl font-bold text-foreground">{service.title}</h2>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--foreground)]">
+                      {service.title}
+                    </h2>
+                    <p className="text-sm text-[color:var(--muted-foreground)] leading-relaxed">
+                      {service.description}
+                    </p>
+
                     <div className="grid grid-cols-2 gap-3">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <CheckCircle className="w-5 h-5 text-[color:var(--primary)] flex-shrink-0" />
+                          <span className="text-sm text-[color:var(--muted-foreground)]">{feature}</span>
                         </div>
                       ))}
                     </div>
-                    {/* <Button className="group bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </Button> */}
                   </div>
 
-                  {/* Image */}
+                  {/* image */}
                   <div className={`${index % 2 === 0 ? "" : "lg:col-start-1"}`}>
                     <div className="relative group max-w-2xl mx-auto">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--primary)]/0 to-[color:var(--primary)]/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500" />
                       <div className="relative w-full h-[300px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 hover-lift">
                         <img
                           src={service.image}
@@ -132,7 +188,7 @@ export default function ServicesPage() {
                           className="h-[300px] object-contain transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
                     </div>
                   </div>
                 </div>
@@ -141,25 +197,25 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-primary/5">
+        {/* CTA */}
+        <section className="py-16 bg-gradient-to-br from-[color:var(--primary)]/5 via-[color:var(--background)] to-[color:var(--primary)]/5">
           <div className="container-responsive text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
               Ready to Transform Your Space?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-[color:var(--muted-foreground)] mb-8 max-w-2xl mx-auto">
               Let's discuss your vision and create something extraordinary together. Our team is ready to bring your dream
               interior to life.
             </p>
             <Link href="/#contact">
-  <Button
-    size="lg"
-    className="bg-primary hover:bg-primary/90 shadow-lg glow-effect transition-all duration-300 hover:scale-105"
-  >
-    Start Your Project
-    <ArrowRight className="w-5 h-5 ml-2" />
-  </Button>
-</Link>
+              <Button
+                size="lg"
+                className="bg-[color:var(--primary)] hover:bg-[color:var(--primary)/90] shadow-lg glow-effect transition-all duration-300 hover:scale-105"
+              >
+                Start Your Project
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </section>
 
