@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -127,6 +128,80 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Tailwind utility classes for Diphylleia */
+.font-diphylleia { font-family: 'Diphylleia', serif; font-weight: 400; font-style: normal; }
+.font-diphylleia-bold { font-family: 'Diphylleia', serif; font-weight: 700; font-style: normal; }
+.font-diphylleia-italic { font-family: 'Diphylleia', serif; font-weight: 400; font-style: italic; }
+
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Diphylleia';
+  src: url('/fonts/Diphylleia-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+.font-diphylleia-italic {
+  font-family: 'Diphylleia', serif;
+  font-style: italic;
+}
+/* Utility class to use the font */
+.font-diphylleia {
+  font-family: 'Diphylleia', serif;
+}
+
+.hover-glow-pink:hover {
+  filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.7));
+}
+.hover-glow-blue:hover {
+  filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.7));
+}
+.hover-glow-green:hover {
+  filter: drop-shadow(0 0 25px rgba(34, 197, 94, 0.7));
+}
+.hover-glow-violet:hover {
+  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.7));
+}
+.hover-glow-yellow:hover {
+  filter: drop-shadow(0 0 25px rgba(234, 179, 8, 0.7));
 }
 
 @layer base {

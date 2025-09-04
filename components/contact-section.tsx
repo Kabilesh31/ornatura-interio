@@ -34,8 +34,7 @@ export function ContactSection() {
     icon: MapPin,
     title: "Visit Our Studio",
     details: [
-      "347, DS Complex, Nehru Street",
-      "Ramnagar Street",
+      "347, DS Complex, Nehru Street,Ramnagar Street",
       "Coimbatore - 641009",
       "Tamil Nadu, India",
     ],
@@ -193,16 +192,13 @@ export function ContactSection() {
               </form>
             </CardContent>
       <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-primary/10 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-5 mx-auto">
-  <div className="h-52 bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-      <div className="bg-background/90 backdrop-blur-md rounded-lg p-4 shadow-xl border border-primary/20 text-center">
-        <div className="w-60 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-2 shadow-md glow-effect">
-          <MapPin className="w-5 h-5 " />
-        </div>
-        <p className="font-semibold text-base text-gradient mb-1">Ornatura Interio Studio</p>
-        <p className="text-xs text-muted-foreground">Visit us for a consultation</p>
-      </div>
+   {/* Location */}
+  <div className="flex flex-col h-50 items-center bg-primary/50 rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mt-8 mb-2">
+      <MapPin className="w-5 h-8 text-white" />
     </div>
+    <p className="font-semibold text-base text-white mb-1">Ornatura Interio Studio</p>
+    <p className="text-xs text-white/80 text-center">Visit us for a consultation</p>
   </div>
 </Card>
 

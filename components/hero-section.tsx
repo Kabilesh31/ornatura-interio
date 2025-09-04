@@ -20,11 +20,11 @@ export function HeroSection() {
 
   const heroContent = [
     {
-      image: "/hero1.jpg",
+      video: "/home1.mp4", // 1st slide video
       title: "Transform Your Living Space",
       subtitle: "INTERIOR DESIGN AGENCY",
       description:
-        "Right design and right ideas matter a lot of in interior design business. a style that makes a statement.",
+        "Right design and right ideas matter a lot in interior design business. A style that makes a statement.",
     },
     {
       image: "/hero2.jpg",
@@ -34,7 +34,7 @@ export function HeroSection() {
         "Creating sophisticated spaces that blend functionality with aesthetic excellence for modern living.",
     },
     {
-      image: "/bg5.jpg",
+      video: "/home2.mp4", // 3rd slide video
       title: "Urban Sophistication",
       subtitle: "PENTHOUSE DESIGN",
       description:
@@ -87,7 +87,7 @@ export function HeroSection() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Images */}
+      {/* Background Images / Videos */}
       <div className="absolute inset-0">
         {heroContent.map((content, index) => {
           const isActive = index === currentSlide
@@ -105,13 +105,24 @@ export function HeroSection() {
               style={{
                 transform: `translateY(${translateY})`,
                 willChange: "transform",
-                backgroundImage: `url('${content.image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundAttachment: bgAttachment,
                 zIndex: isActive || isNext ? 2 : 1,
+                backgroundAttachment: bgAttachment,
               }}
             >
+              {content.video ? (
+                <video
+                  src={content.video}
+                  autoPlay
+                  loop
+                  muted
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div
+                  className="w-full h-full bg-cover bg-center"
+                  style={{ backgroundImage: `url('${content.image}')` }}
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
             </div>
           )
@@ -162,14 +173,13 @@ export function HeroSection() {
             <p className="text-sm tracking-widest text-white/80 mb-2">{currentContent.subtitle}</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               {currentContent.title.split(" ").map((word, index, arr) => (
-  <span
-    key={index}
-    className={index === arr.length - 1 ? "block text-neutral-400 glow-effect" : ""}
-  >
-    {word}{" "}
-  </span>
-))}
-
+                <span
+                  key={index}
+                  className={index === arr.length - 1 ? "block text-neutral-400 glow-effect" : ""}
+                >
+                  {word}{" "}
+                </span>
+              ))}
             </h1>
           </div>
 

@@ -1,45 +1,10 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Award, Users, Clock, Star } from "lucide-react"
-
-const teamMembers = [
-  {
-    name: "Sarah Johnson",
-    role: "Lead Interior Designer",
-    image: "/professional-female-interior-designer.png",
-    bio: "With over 12 years of experience, Sarah specializes in luxury residential design and has won multiple design awards.",
-    specialties: ["Luxury Design", "Color Theory", "Space Planning"],
-  },
-  {
-    name: "Michael Chen",
-    role: "Senior Architect",
-    image: "/images/team-2.png",
-    bio: "Michael brings architectural expertise to our team, ensuring every design is both beautiful and structurally sound.",
-    specialties: ["Architecture", "Renovation", "Building Codes"],
-  },
-  {
-    name: "Emma Rodriguez",
-    role: "Project Manager",
-    image: "/professional-female-project-manager.png",
-    bio: "Emma ensures every project runs smoothly from concept to completion, maintaining our high standards of quality.",
-    specialties: ["Project Management", "Client Relations", "Quality Control"],
-  },
-]
-
-const achievements = [
-  { icon: Award, label: "Design Awards", value: "25+" },
-  { icon: Users, label: "Happy Clients", value: "500+" },
-  { icon: Clock, label: "Years Experience", value: "15+" },
-  { icon: Star, label: "Client Rating", value: "4.9/5" },
-]
-
 export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-25 overflow-hidden bg-[#e9e8e6]" // Background color
+      className="relative py-30 mt-3 overflow-hidden bg-[#e9e8e6] text-primary"
     >
       {/* Video Background */}
       <video
@@ -55,14 +20,14 @@ export function AboutSection() {
 
       <div className="relative container mx-auto px-4 z-10">
         {/* Header */}
-        <div className="text-center mb-6">
-          <h2 className="text-4xl md:text-4xl font-bold mb-16 text-gray-900">
+        <div className="text-center mb-8">
+          <h2 className="mb-16 text-gray-900 font-diphylleia-italic text-[3.8rem] leading-tight">
             About Ornatura Interio
           </h2>
 
-          <div className="max-w-3xl mx-auto space-y-5.5 text-lg text-gray-900 leading-relaxed text-justify">
+          <div className="max-w-4xl mx-auto space-y-6 text-gray-900 leading-relaxed text-justify font-diphylleia-italic text-[1.25rem]">
             <p>
-              At <span className="font-semibold">Ornatura Interior</span>, we are passionate about transforming
+              At <span className="font-diphylleia-bold font-normal">Ornatura Interior</span>, we are passionate about transforming
               spaces into timeless works of art. As one of Coimbatore’s leading architectural and interior design firms,
               we specialize in crafting bespoke solutions that balance creativity, precision, and functionality.
             </p>
@@ -81,8 +46,8 @@ export function AboutSection() {
             </p>
 
             <p>
-              At <span className="font-semibold">Ornatura Interior</span>, we don’t just design spaces—
-              we craft <span className="italic">experiences</span>.
+              At <span className="font-diphylleia-bold font-normal">Ornatura Interior</span>, we don’t just design spaces—
+              we craft <span className="font-diphylleia-italic">experiences</span>.
             </p>
           </div>
         </div>
