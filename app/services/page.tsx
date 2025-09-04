@@ -98,56 +98,187 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Workflow strip */}
-        <section className="relative py-10 md:py-14  px-4">
-          <div className="container mx-auto px-4">
-            <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
-              {/* connecting line */}
-              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-[color:var(--muted)] via-[color:var(--secondary)] to-[color:var(--muted)] -z-10" />
+      {/* Workflow strip */}
+<section className="relative py-10 md:py-14 px-4">
+  <div className="container mx-auto px-4">
+    <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
+      
+      {/* connecting line */}
+      <div className="hidden md:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-[color:var(--muted)] via-[color:var(--secondary)] to-[color:var(--muted)] -z-10" />
 
-              {services.map((s, i) => (
-                <div key={s.id} className="md:w-1/6 w-full flex flex-col items-center text-center">
-                  <div
-                    className={`relative bg-gradient-to-r ${gradients[i % gradients.length]} p-[3px] rounded-full shadow-md transition-transform hover:scale-105`}
-                  >
-                    {/* inner circle */}
-                    <div className="relative w-36 h-36 md:w-50 md:h-50 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4">
-                      {/* number */}
-                      <span
-                        className={`hidden md:block absolute -left-6 -top-5 text-[92px] font-extrabold opacity-100 text-transparent bg-clip-text bg-gradient-to-r ${gradients[i % gradients.length]} drop-shadow-md`}
-                      >
-                        {i + 1}
-                      </span>
-
-                      {/* icon */}
-                      <img src={s.image} alt={`Step ${i + 1} icon`} className="w-12 h-12 object-contain mb-2" />
-
-                      {/* step label */}
-                      <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">
-                        Step {i + 1}
-                      </span>
-
-                      {/* title */}
-                      <h4 className="mt-0 text-[12px] sm:text-[14px] md:text-sm font-bold leading-snug text-[color:var(--foreground)] text-center">
-  {s.title}
-</h4>
-                    </div>
-
-                    {/* connector dot */}
-                    <span
-                      className={`hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-r ${gradients[i % gradients.length]}`}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* Circle 1 */}
+      <div className="md:w-1/6 w-full flex flex-col items-center text-center relative group">
+        <span
+          className="absolute text-[120px] font-extrabold -top-3 -left-0 z-10 md:-left-5 translate-x-4 md:translate-x-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            color: "var(--background)",
+            WebkitTextStroke: "3px #FF7F50",
+            textShadow: `
+              0 0 2px #FF7F50,
+              0 0 4px rgba(255,127,80,0.5),
+              0 0 6px rgba(255,127,80,0.2)
+            `,
+            transition: "text-shadow 0.3s ease-in-out",
+          }}
+        >
+          1
+        </span>
+        <div className="relative bg-gradient-to-r from-orange-400 to-pink-500 p-[3px] rounded-full shadow-md
+                        transition-shadow duration-300 group-hover:shadow-[0_0_10px_#FF7F50,0_0_15px_#FF7F50,0_0_20px_#FF7F50]">
+          <div className="w-48 h-48 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4 transition-all duration-300 group-hover:scale-102">
+            <img src="/service/10.png" className="w-12 h-12 mb-2 transition-all duration-300 group-hover:scale-110" />
+            <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">Step 1</span>
+            <h4 className="text-sm font-bold text-[color:var(--foreground)] text-center">Consultation & Concept Development</h4>
           </div>
-        </section>
+        </div>
+      </div>
+
+      {/* Circle 2 */}
+      <div className="md:w-1/6 w-full flex flex-col items-center text-center relative group">
+        <span
+          className="absolute text-[120px] font-extrabold -top-3 -left-0 z-10 md:-left-5 translate-x-4 md:translate-x-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            color: "var(--background)",
+            WebkitTextStroke: "3px #3B82F6",
+            textShadow: `
+              0 0 2px #3B82F6,
+              0 0 4px rgba(59,130,246,0.5),
+              0 0 6px rgba(59,130,246,0.2)
+            `,
+            transition: "text-shadow 0.3s ease-in-out",
+          }}
+        >
+          2
+        </span>
+        <div className="relative bg-gradient-to-r from-blue-400 to-cyan-500 p-[3px] rounded-full shadow-md
+                        transition-shadow duration-300 group-hover:shadow-[0_0_10px_#3B82F6,0_0_15px_#3B82F6,0_0_20px_#3B82F6]">
+          <div className="w-48 h-48 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4 transition-all duration-300 group-hover:scale-102">
+            <img src="/service/124.png" className="w-12 h-12 mb-2 transition-all duration-300 group-hover:scale-110" />
+            <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">Step 2</span>
+            <h4 className="text-sm font-bold text-[color:var(--foreground)] text-center">Moodboard Curation</h4>
+          </div>
+        </div>
+      </div>
+
+      {/* Circle 3 */}
+      <div className="md:w-1/6 w-full flex flex-col items-center text-center relative group">
+        <span
+          className="absolute text-[120px] font-extrabold -top-3 -left-0 z-10 md:-left-5 translate-x-4 md:translate-x-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            color: "var(--background)",
+            WebkitTextStroke: "3px #10B981",
+            textShadow: `
+              0 0 2px #10B981,
+              0 0 4px rgba(16,185,129,0.5),
+              0 0 6px rgba(16,185,129,0.2)
+            `,
+            transition: "text-shadow 0.3s ease-in-out",
+          }}
+        >
+          3
+        </span>
+        <div className="relative bg-gradient-to-r from-green-400 to-emerald-500 p-[3px] rounded-full shadow-md
+                        transition-shadow duration-300 group-hover:shadow-[0_0_10px_#10B981,0_0_15px_#10B981,0_0_20px_#10B981]">
+          <div className="w-48 h-48 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4 transition-all duration-300 group-hover:scale-102">
+            <img src="/service/123.png" className="w-12 h-12 mb-2 transition-all duration-300 group-hover:scale-110" />
+            <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">Step 3</span>
+            <h4 className="text-sm font-bold text-[color:var(--foreground)] text-center">Design Immersion</h4>
+          </div>
+        </div>
+      </div>
+
+      {/* Circle 4 */}
+      <div className="md:w-1/6 w-full flex flex-col items-center text-center relative group">
+        <span
+          className="absolute text-[120px] font-extrabold -top-3 -left-0 z-10 md:-left-5 translate-x-4 md:translate-x-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            color: "var(--background)",
+            WebkitTextStroke: "3px #8B5CF6",
+            textShadow: `
+              0 0 2px #8B5CF6,
+              0 0 4px rgba(139,92,246,0.5),
+              0 0 6px rgba(139,92,246,0.2)
+            `,
+            transition: "text-shadow 0.3s ease-in-out",
+          }}
+        >
+          4
+        </span>
+        <div className="relative bg-gradient-to-r from-purple-400 to-indigo-500 p-[3px] rounded-full shadow-md
+                        transition-shadow duration-300 group-hover:shadow-[0_0_10px_#8B5CF6,0_0_15px_#8B5CF6,0_0_20px_#8B5CF6]">
+          <div className="w-48 h-48 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4 transition-all duration-300 group-hover:scale-102">
+            <img src="/service/126.png" className="w-12 h-12 mb-2 transition-all duration-300 group-hover:scale-110" />
+            <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">Step 4</span>
+            <h4 className="text-sm font-bold text-[color:var(--foreground)] text-center">Design Development</h4>
+          </div>
+        </div>
+      </div>
+
+      {/* Circle 5 */}
+      <div className="md:w-1/6 w-full flex flex-col items-center text-center relative group">
+        <span
+          className="absolute text-[120px] font-extrabold -top-3 -left-0 z-10 md:-left-5 translate-x-4 md:translate-x-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            color: "var(--background)",
+            WebkitTextStroke: "3px #F59E0B",
+            textShadow: `
+              0 0 2px #F59E0B,
+              0 0 4px rgba(245,158,11,0.5),
+              0 0 6px rgba(245,158,11,0.2)
+            `,
+            transition: "text-shadow 0.3s ease-in-out",
+          }}
+        >
+          5
+        </span>
+        <div className="relative bg-gradient-to-r from-amber-400 to-yellow-500 p-[3px] rounded-full shadow-md
+                        transition-shadow duration-300 group-hover:shadow-[0_0_10px_#F59E0B,0_0_15px_#F59E0B,0_0_20px_#F59E0B]">
+          <div className="w-48 h-48 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4 transition-all duration-300 group-hover:scale-102">
+            <img src="/service/127.png" className="w-12 h-12 mb-2 transition-all duration-300 group-hover:scale-110" />
+            <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">Step 5</span>
+            <h4 className="text-sm font-bold text-[color:var(--foreground)] text-center">Design Execution</h4>
+          </div>
+        </div>
+      </div>
+
+      {/* Circle 6 */}
+      <div className="md:w-1/6 w-full flex flex-col items-center text-center relative group">
+        <span
+          className="absolute text-[120px] font-extrabold -top-3 -left-0 z-10 md:-left-7 translate-x-4 md:translate-x-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            color: "var(--background)",
+            WebkitTextStroke: "3px #EC4899",
+            textShadow: `
+              0 0 2px #EC4899,
+              0 0 4px rgba(236,72,153,0.5),
+              0 0 6px rgba(236,72,153,0.2)
+            `,
+            transition: "text-shadow 0.3s ease-in-out",
+          }}
+        >
+          6
+        </span>
+        <div className="relative bg-gradient-to-r from-pink-400 to-rose-500 p-[3px] rounded-full shadow-md
+                        transition-shadow duration-300 group-hover:shadow-[0_0_10px_#EC4899,0_0_15px_#EC4899,0_0_20px_#EC4899]">
+          <div className="w-48 h-48 rounded-full bg-[color:var(--background)] flex flex-col items-center justify-center px-4 transition-all duration-300 group-hover:scale-102">
+            <img src="/service/128.png" className="w-12 h-12 mb-2 transition-all duration-300 group-hover:scale-110" />
+            <span className="text-[16px] font-extrabold uppercase text-[color:var(--foreground)]">Step 6</span>
+            <h4 className="text-sm font-bold text-[color:var(--foreground)] text-center">Post-Completion Support</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
 
         {/* Service detail blocks */}
-       <section className="py-16  px-4">
+       <section className="py-10  px-4">
   <div className="container-responsive max-w-6xl mx-auto">
-    <div className="space-y-24">
+    <div className="space-y-22">
       {services.map((service, index) => (
         <div
           key={service.id}
@@ -157,10 +288,10 @@ export default function ServicesPage() {
         >
           {/* Text */}
           <div className={`space-y-6 ${index % 2 === 0 ? "" : "lg:col-start-2"}`}>
-            <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-3 py-1 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-10 py-1 -mt-15 rounded-full text-sm font-medium">
               Step {index + 1}
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[color:var(--foreground)]">
+            <h2 className="text-3x2 md:text-3xl font-bold text-[color:var(--foreground)]">
               {service.title}
             </h2>
             <p className="text-sm text-[color:var(--muted-foreground)] leading-relaxed">
@@ -179,7 +310,7 @@ export default function ServicesPage() {
 
           {/* Image */}
           <div className={`${index % 2 === 0 ? "" : "lg:col-start-1"}`}>
-            <div className="relative group max-w-2xl mx-auto">
+            <div className="relative group mt-12 max-w-2xl mx-auto">
               <div className="relative w-full h-[300px] flex items-center justify-center overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border border-[color:var(--primary)]/20">
                 <img
                   src={service.image}
