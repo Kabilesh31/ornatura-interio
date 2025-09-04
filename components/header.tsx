@@ -56,7 +56,7 @@ export function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
             <img
-              src="/ornatura.jpg"
+              src="/Ornatura.jpg"
               alt="Ornatura Interio Logo"
               className={cn(
                 "w-8 sm:w-38 md:w-10 transition-all duration-300 ml-4 sm:ml-6",
