@@ -47,7 +47,7 @@ export function AboutSection() {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-60 mix-blend-multiply"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-20 mix-blend-multiply"
       >
         <source src="/about.mp4" type="video/mp4" />
         Your browser does not support the video tag.

@@ -52,14 +52,14 @@ export function Header() {
       )}
     >
       <div className="container-responsive py-3 sm:py-4">
-        <div className="flex items-center justify-start gap-70">
+        <div className="flex items-center justify-start gap-110">
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
             <img
-              src="/logo.png"
+              src="/ornatura.jpg"
               alt="Ornatura Interio Logo"
               className={cn(
-                "w-40 sm:w-38 md:w-62 transition-all duration-300 ml-1 sm:ml-4",
+                "w-8 sm:w-38 md:w-10 transition-all duration-300 ml-4 sm:ml-6",
                 isScrolled ? "opacity-80" : "opacity-100"
               )}
             />

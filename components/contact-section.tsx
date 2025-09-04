@@ -69,10 +69,10 @@ export function ContactSection() {
     <section id="contact" className="py-20 bg-gradient-to-br from-card via-primary/5 to-secondary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-primary/20">
+          {/* <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-primary/20">
             <MessageSquare className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Get In Touch</span>
-          </div>
+          </div> */}
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Start Your Dream Project</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ready to transform your space into something extraordinary? Let's discuss your vision and bring it to life
@@ -197,7 +197,7 @@ export function ContactSection() {
     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
       <div className="bg-background/90 backdrop-blur-md rounded-lg p-4 shadow-xl border border-primary/20 text-center">
         <div className="w-60 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-2 shadow-md glow-effect">
-          <MapPin className="w-5 h-5 text-primary-foreground" />
+          <MapPin className="w-5 h-5 " />
         </div>
         <p className="font-semibold text-base text-gradient mb-1">Ornatura Interio Studio</p>
         <p className="text-xs text-muted-foreground">Visit us for a consultation</p>
