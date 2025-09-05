@@ -11,7 +11,7 @@ export default function ServicesPage() {
       title: "Consultation & Concept Development",
       description:
         "We begin by listening to your vision, lifestyle, and requirements. This forms the foundation for personalized design concepts tailored exclusively for you.",
-      image: "/service/310.png",
+      image: "/service/401.png",
       features: ["Personal consultation", "Vision mapping", "Lifestyle analysis", "Custom concepts"],
     },
     {
@@ -19,7 +19,7 @@ export default function ServicesPage() {
       title: "Moodboard Curation",
       description:
         "Through curated moodboards, we translate ideas into visuals—helping you experience the harmony of colors, textures, and styles before execution.",
-      image: "/service/126.png",
+      image: "/service/405.png",
       features: ["Visual concepts", "Color harmony", "Texture selection", "Style coordination"],
     },
     {
@@ -27,7 +27,7 @@ export default function ServicesPage() {
       title: "Design Immersion",
       description:
         "We take you deeper into the design experience, exploring spatial flow, materials, and aesthetics that align with your preferences.",
-      image: "/service/124.png",
+      image: "/service/402.png",
       features: ["Spatial planning", "Material exploration", "Aesthetic alignment", "Flow optimization"],
     },
     {
@@ -35,7 +35,7 @@ export default function ServicesPage() {
       title: "Design Development",
       description:
         "Concepts are transformed into detailed plans and 3D visualizations, ensuring clarity, precision, and flawless integration of every design element.",
-      image: "/service/128.png",
+      image: "/service/406.png",
       features: ["Detailed plans", "3D visualizations", "Technical drawings", "Element integration"],
     },
     {
@@ -43,7 +43,7 @@ export default function ServicesPage() {
       title: "Design Execution",
       description:
         "From sourcing materials to on-site implementation, we manage every detail with meticulous craftsmanship and quality assurance.",
-      image: "/service/303.png",
+      image: "/service/403.png",
       features: ["Material sourcing", "On-site management", "Quality assurance", "Craftsmanship"],
     },
     {
@@ -51,7 +51,7 @@ export default function ServicesPage() {
       title: "Post-Completion Support",
       description:
         "Our relationship doesn't end with project handover—we provide ongoing support to ensure your space continues to inspire and evolve with you.",
-      image: "/service/309.png",
+      image: "/service/404.png",
       features: ["Ongoing support", "Maintenance guidance", "Evolution planning", "Long-term care"],
     },
   ];
