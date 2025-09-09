@@ -44,7 +44,7 @@ export function ContactSection() {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+91 98765 43210"],
+      details: ["+91 94874 35050"],
       color: "text-green-500",
       bgColor: "bg-green-500/10",
     },
@@ -65,7 +65,7 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden">
+    <section id="contact" className="relative py-25 -mt-12 overflow-hidden">
   {/* Video Background */}
   <video
     className="absolute inset-0 w-full h-full object-cover"
@@ -227,18 +227,25 @@ export function ContactSection() {
 
         {/* Location Card */}
         <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-primary/10 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-5 mx-auto">
-          <div className="flex flex-col h-50 items-center bg-primary/50 rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mt-8 mb-2">
-              <MapPin className="w-5 h-8 text-white" />
-            </div>
-            <p className="font-semibold text-base text-white mb-1">
-              Ornatura Interio Studio
-            </p>
-            <p className="text-xs text-white/80 text-center">
-              Visit us for a consultation
-            </p>
-          </div>
-        </Card>
+  <div className="flex flex-col h-50 items-center bg-primary/50 rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow duration-300">
+    <a
+      href="https://www.google.com/maps?q=347,+DS+Complex,+Nehru+Street,+Ramnagar+Street,+Coimbatore+-+641009,+Tamil+Nadu,+India"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mt-8 mb-2 hover:bg-primary/80 transition"
+    >
+      <MapPin className="w-5 h-8 text-white" />
+    </a>
+
+    <p className="font-semibold text-base text-white mb-1">
+      Ornatura Interio Studio
+    </p>
+    <p className="text-xs text-white/80 text-center">
+      Visit us for a consultation
+    </p>
+  </div>
+</Card>
+
       </Card>
 
       {/* Right Column - Contact Info */}

@@ -4,7 +4,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-30 mt-3 overflow-hidden bg-[#e9e8e6] text-primary"
+      className="relative py-32 -mt-10 -mb-20 - overflow-hidden bg-[#e9e8e6] text-primary"
     >
       {/* Video Background */}
       <video
@@ -21,7 +21,7 @@ export function AboutSection() {
       <div className="relative container mx-auto px-4 z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="mb-16 text-gray-900 font-diphylleia-italic text-[3.8rem] leading-tight">
+          <h2 className="mb-14 -mt-10 text-gray-900 font-diphylleia-italic text-[1.8rem] md:text-[3.8rem] leading-tight">
             About Ornatura Interio
           </h2>
 

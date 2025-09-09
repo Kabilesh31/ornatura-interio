@@ -11,7 +11,7 @@ import {
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,28 +25,38 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const pathname = usePathname();
-  const isServicesPage = pathname === "/services";
+  const pathname = usePathname()
+  const isServicesPage = pathname === "/services"
   const isGallery = pathname === "/gallery"
 
   // function to decide nav link style
   const getNavStyle = () => {
-  // If we are on Services or Gallery page
-  if (isServicesPage || isGallery) {
-    return "text-gray-500 hover:text-primary hover:bg-primary-s/20";
-  }
+    // ✅ On Services page
+    if (isServicesPage) {
+      return "text-white hover:shadow-md hover:shadow-black/20"
+    }
 
-  // For other pages, change color on scroll
-  return isScrolled
-    ? "text-gray-800 hover:text-primary hover:bg-gray-100"
-    : "text-white hover:text-yellow-300 hover:bg-primary/20";
-};
+    // On Gallery page (you can change if needed)
+    if (isGallery) {
+      return "text-gray-500 hover:text-primary hover:bg-primary-s/20"
+    }
+
+    // For other pages, change color on scroll
+    return isScrolled
+      ? "text-gray-800 hover:text-primary hover:bg-gray-100"
+      : "text-white hover:text-yellow-300 hover:bg-primary/20"
+  }
 
   return (
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500",
-        isScrolled
+        // ✅ Services page style
+        isServicesPage
+          ? isScrolled
+            ? "bg-[#68705c] shadow-xl border-b border-primary/10"
+            : "bg-transparent"
+          : isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-xl border-b border-primary/10"
           : "bg-transparent"
       )}
@@ -68,72 +78,25 @@ export function Header() {
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex flex-1 justify-center">
             <NavigationMenuList className="space-x-2">
-              {/* Home */}
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/"
-                  className={cn(
-                    "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none hover:scale-105",
-                    getNavStyle()
-                  )}
-                >
-                  Home
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              {/* About Us */}
-              <NavigationMenuItem>
-                <Link
-                  href="/#about"
-                  className={cn(
-                    "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none hover:scale-105",
-                    getNavStyle()
-                  )}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-              </NavigationMenuItem>
-
-              {/* Services */}
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/services"
-                  className={cn(
-                    "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none hover:scale-105",
-                    getNavStyle()
-                  )}
-                >
-                  Services
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              {/* Gallery */}
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/gallery"
-                  className={cn(
-                    "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none hover:scale-105",
-                    getNavStyle()
-                  )}
-                >
-                  Gallery
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              {/* Enquiry */}
-              <NavigationMenuItem>
-                <Link
-                  href="/#contact"
-                  className={cn(
-                    "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none hover:scale-105",
-                    getNavStyle()
-                  )}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Enquiry
-                </Link>
-              </NavigationMenuItem>
+              {[
+                { label: "Home", href: "/" },
+                { label: "About Us", href: "/#about" },
+                { label: "Services", href: "/services" },
+                { label: "Gallery", href: "/gallery" },
+                { label: "Enquiry", href: "/#contact" },
+              ].map((item, idx) => (
+                <NavigationMenuItem key={idx}>
+                  <NavigationMenuLink
+                    href={item.href}
+                    className={cn(
+                      "group inline-flex h-11 w-max items-center justify-center rounded-lg bg-transparent px-5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none hover:scale-105",
+                      getNavStyle()
+                    )}
+                  >
+                    {item.label}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -150,39 +113,39 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-  <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%] mx-4 rounded-xl shadow-2xl slide-down overflow-hidden bg-white">
-    <nav className="flex flex-col p-4">
-      {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => {
-        const href =
-          item === "Home"
-            ? "/"
-            : item === "About Us"
-            ? "/#about"
-            : item === "Services"
-            ? "/services"
-            : item === "Gallery"
-            ? "/gallery"
-            : "/#contact"
+          <div className="lg:hidden absolute left-1 top-full mt-2 w-80 max-w-[90%] mx-4 rounded-xl shadow-2xl slide-down overflow-hidden bg-white">
+            <nav className="flex flex-col p-4">
+              {["Home", "About Us", "Services", "Gallery", "Enquiry"].map((item, idx) => {
+                const href =
+                  item === "Home"
+                    ? "/"
+                    : item === "About Us"
+                    ? "/#about"
+                    : item === "Services"
+                    ? "/services"
+                    : item === "Gallery"
+                    ? "/gallery"
+                    : "/#contact"
 
-        const mobileTextClass =
-          isServicesPage || isGallery
-            ? "text-gray-800 hover:text-primary hover:bg-primary/10"
-            : "text-gray-800 hover:text-primary hover:bg-gray-100/10"
+                const mobileTextClass =
+                  isServicesPage || isGallery
+                    ? "text-gray-800 hover:text-primary hover:bg-primary/10"
+                    : "text-gray-800 hover:text-primary hover:bg-gray-100/10"
 
-        return (
-          <a
-            key={idx}
-            href={href}
-            className={cn(
-              "px-2 py-3 text-sm font-medium rounded-lg transition-all duration-300 hover-lift",
-              mobileTextClass
-            )}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            {item}
-          </a>
-        )
-      })}
+                return (
+                  <a
+                    key={idx}
+                    href={href}
+                    className={cn(
+                      "px-2 py-3 text-sm font-medium rounded-lg transition-all duration-300 hover-lift",
+                      mobileTextClass
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                )
+              })}
             </nav>
           </div>
         )}

@@ -1,10 +1,21 @@
+"use client";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function ServicesPage() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // set playback speed
+    }
+  }, []);
+
   const services = [
     {
       id: "consultation",
@@ -55,147 +66,131 @@ export default function ServicesPage() {
       features: ["Ongoing support", "Maintenance guidance", "Evolution planning", "Long-term care"],
     },
   ];
-const stepGradientHex = [
-  ["#3B82F6", "#0EA5E9"], // blue → sky
-  ["#8B5CF6", "#D946EF"], // violet → fuchsia
-  ["#EC4899", "#F43F5E"], // pink → rose
-  ["#F97316", "#F59E0B"], // orange → amber
-  ["#14B8A6", "#10B981"], // teal → emerald
-  ["#6366F1", "#A855F7"], // indigo → purple
-];
+
   return (
-    <div className="min-h-screen relative bg-[color:var(--background)]">
-      {/* Dimmed background image */}
-      <div
-        className="absolute inset-0 opacity-10 bg-fixed bg-center bg-cover pointer-events-none"
-        style={{ backgroundImage: "url('/service/bg5.png')" }}
-      />
-      <div className="relative z-10">
-        <Header />
+    <div className="relative bg-[color:var(--background)]">
+      <Header />
 
-        {/* Hero */}
-        <section className="pt-24 pb-10 md:pb-12 px-4">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center -ml-2 gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Sparkles className="w-4 h-4" />
-                Our Services we do
-              </div>
+      {/* Fixed Hero Background */}
+     <div className="fixed inset-0 z-0 w-full overflow-hidden">
+  <video
+    ref={videoRef}
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-screen md:h-[100vh] object-cover object-center"
+  >
+    <source src="/serv4.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/40"></div>
+</div>
 
-              <h2 className="text-2xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
-                Comprehensive Interior Design Services
-              </h2>
 
-              <p className="text-lg md:text-xl text-[color:var(--foreground)]">
-                From initial consultation to post-completion support, we guide you
-                through every step of your interior design journey with expertise
-                and care.
-              </p>
-            </div>
+{/* Fixed Workflow Image */}
+{/* <div className="fixed inset-0 z-10 flex items-center justify-center pointer-events-none px-4">
+  <img
+    src="/service/work11.png"
+    alt="Workflow"
+    className="w-full max-w-[90%] md:max-w-[1450px] h-[800px]
+               max-h-[60vh] sm:max-h-none
+               translate-y-6 sm:translate-y-0
+               opacity-45"   // 👈 makes it dimmer
+  />
+</div> */}
+
+      {/* Page Content */}
+      <div className="relative z-20">
+        {/* Hero Spacer */}
+        <section className="h-screen"></section>
+
+        {/* Services Intro */}
+        <section className="py-16 px-4 md:py-20 bg-[color:var(--background)]">
+          <div className="container mx-auto text-center max-w-4xl">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl -mt-120 sm:-mt-40 md:-mt-124 mb-110 sm:mb-40 md:mb-110 font-extrabold text-[#edf0ee]">
+  Journey With Us
+</h1>
+
+            {/* <div className="inline-flex items-center gap-2 bg-[color:var(--primary)]/10 text-[color:var(--primary)] px-3 py-1 rounded-full text-xs md:text-sm mb-4 md:mb-6">
+              <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
+              Our Services we do
+            </div> */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+  {/* Left side - Heading */}
+  <h3
+    className="text-xl sm:text-2xl md:text-2xl font-bold mb-4 md:mb-6 
+               bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] 
+               bg-clip-text text-transparent 
+               text-center md:text-left md:-ml-15"
+  >
+    Best Interior Journey with
+    <br />
+    Ornatura Interio - Route Map
+  </h3>
+
+  {/* Right side - Paragraph */}
+  <p
+    className="text-sm sm:text-base md:text-sm text-[color:var(--foreground)] 
+               text-center md:text-left md:-ml-25 -mt-3 md:-mt-6"
+  >
+    Don’t settle for ordinary interiors. Let Ornatura Interio elevate your home into a masterpiece of design.
+    
+    Visit our showroom and embark on a journey of transformation. Your Ornatura Interio Routemap awaits!
+  </p>
+</div>
+
           </div>
         </section>
 
-
-      {/* Workflow strip */}
-<section className="relative py-5 -mt-18 md:py-10 px-4">
-  <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 md:grid-cols-6 gap-1 items-center justify-center">
-      {[1, 2, 3, 4, 5, 6].map((i) => {
-        const hoverClasses = [
-          "hover-glow-pink",
-          "hover-glow-blue",
-          "hover-glow-green",
-          "hover-glow-violet",
-          "hover-glow-yellow",
-          "hover-glow-pink", // repeat pink
-        ];
-
-        return (
-          <div key={i} className="flex justify-center">
+        {/* Service Details */}
+    <section className="py-16 md:py-20 px-4 bg-[color:var(--background)]">
+  <div className="container mx-auto max-w-6xl relative">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-30"> 
+      {/* 👆 gap-x for left/right, gap-y for top/bottom row spacing */}
+      {services.map((service, index) => (
+        <motion.div
+          key={service.id}
+          className="group relative rounded-2xl p-6 pt-30 pb-24 text-center bg-[#e9f1e9] shadow-md transition-transform duration-300 min-h-[360px] md:min-h-[440px] overflow-visible"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ scale: 1.03, y: -6 }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
+          {/* Floating image box */}
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-42 h-42 sm:w-46 sm:h-46 bg-[#c3cbb6] rounded-2xl shadow-lg flex items-center justify-center p-3 overflow-hidden transition-transform duration-300 group-hover:scale-105">
             <img
-              src={`/service/step${i}.png`}
-              alt={`Image ${i}`}
-              className={`w-80 h-80 object-contain transition-all duration-700 delay-100 ease-in-out hover:scale-105 ${hoverClasses[i - 1]}`}
+              src={service.image}
+              alt={service.title}
+              className="object-contain w-44 h-44 sm:w-44 sm:h-44"
             />
           </div>
-        );
-      })}
+
+          <h3 className="mt-8 text-lg sm:text-xl md:text-2xl font-bold text-[color:var(--foreground)] mb-2">
+            {service.title}
+          </h3>
+
+          <p className="text-[color:var(--muted-foreground)] mb-3 text-sm sm:text-base">
+            {service.description}
+          </p>
+
+          {/* Step Box with margin */}
+          <div className="absolute bottom-4 left-4 right-4">
+            <div className="bg-[#68705c] text-white font-semibold text-lg py-3 rounded-xl shadow-md">
+              Step {index + 1}
+            </div>
+          </div>
+        </motion.div>
+      ))}
     </div>
   </div>
 </section>
 
 
-        {/* Service detail blocks */}
-        <section className="py-10 px-4 md:py-20">
-          <div className="container mx-auto max-w-6xl">
-            <div className="space-y-16 md:space-y-20">
-              {services.map((service, index) => (
-                <div
-                  key={service.id}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center ${
-                    index % 2 === 0 ? "" : "lg:grid-flow-col-dense"
-                  }`}
-                >
-                  {/* Text */}
-                  <div className={`space-y-4 md:space-y-6 ${index % 2 === 0 ? "" : "lg:col-start-2"}`}>
-                <div
-  className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs sm:text-sm font-medium text-[color:var(--primary)] transition-all duration-300 hover:scale-105 hover:shadow-lg"
-  style={{
-    background: `linear-gradient(to right, ${stepGradientHex[index][0]}, ${stepGradientHex[index][1]})`,
-    padding: "1px", // border thickness
-    borderRadius: "9999px", // fully rounded
-  }}
->
-  <div
-  className="w-full h-full flex items-center justify-center rounded-full"
-  style={{
-    background: "var(--background)", // inner background
-    borderRadius: "9999px",
-    padding: "8px 12px", // small padding: vertical 8px, horizontal 12px
-  }}
->
-  Step {index + 1}
-</div>
-</div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[color:var(--foreground)]">
-                      {service.title}
-                    </h2>
-                    <p className="text-sm sm:text-base md:text-lg text-[color:var(--muted-foreground)] leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-2">
-                          <CheckCircle className="w-5 h-5 text-[color:var(--primary)] flex-shrink-0" />
-                          <span className="text-sm sm:text-base text-[color:var(--muted-foreground)]">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Image */}
-                  <div className={`${index % 2 === 0 ? "" : "lg:col-start-1"} flex justify-center`}>
-                    <div className="relative group mt-4 md:mt-6 w-full sm:max-w-[450px] mx-auto ">
-                      <div className="relative w-full h-[250px] sm:h-[320px] flex items-center justify-center overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border border-[color:var(--primary)]/20">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-contain transition-transform duration-500"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-12 md:py-16 bg-gradient-to-br from-[color:var(--primary)]/5 via-[color:var(--background)] to-[color:var(--primary)]/5 px-4">
+        {/* CTA Section */}
+        <section className="py-12 md:py-16 px-4 bg-[color:var(--background)]">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
               Ready to Transform Your Space?
