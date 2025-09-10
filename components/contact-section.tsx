@@ -272,16 +272,19 @@ export function ContactSection() {
 
         {/* Location Card */}
        <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-primary/10 w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-5 mx-auto">
+  
   <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.557172055895!2d76.96206237528303!3d11.001510591958562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85983e3951f5d%3A0x5cbb1f8988c437c8!2s347%20DS%20Complex%2C%20Nehru%20Street%2C%20Ramnagar%20Street%2C%20Coimbatore%20641009!5e0!3m2!1sen!2sin!4v1694367890123!5m2!1sen!2sin"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.3073904968364!2d76.96067417771609!3d11.015547861167242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8591efcd0eea5%3A0x2b87873e6e1962ff!2sDS%20Complex!5e0!3m2!1sen!2sin!4v1757516607834!5m2!1sen!2sin"
     width="100%"
     height="240"
-    className="rounded-lg"
+ 
     allowFullScreen
     loading="lazy"
     referrerPolicy="no-referrer-when-downgrade"
+    className="rounded-lg"
   ></iframe>
 </Card>
+
 
 
 
