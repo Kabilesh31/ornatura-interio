@@ -27,21 +27,23 @@ export function Header() {
 
   const pathname = usePathname()
   const isServicesPage = pathname === "/services"
-  const isGallery = pathname === "/gallery"
+  const isGalleryPage = pathname === "/gallery"
 
-  // function to decide nav link style
+  // ✅ Nav link style
   const getNavStyle = () => {
-    // ✅ On Services page
+    // Services → always white
     if (isServicesPage) {
       return "text-white hover:shadow-md hover:shadow-black/20"
     }
 
-    // On Gallery page (you can change if needed)
-    if (isGallery) {
-      return "text-gray-500 hover:text-primary hover:bg-primary-s/20"
+    // Gallery → gray text initially, white when scrolled
+    if (isGalleryPage) {
+      return isScrolled
+        ? "text-white hover:shadow-md hover:shadow-black/20"
+        : "text-gray-800 hover:text-primary hover:bg-primary/20"
     }
 
-    // For other pages, change color on scroll
+    // Other pages
     return isScrolled
       ? "text-gray-800 hover:text-primary hover:bg-gray-100"
       : "text-white hover:text-yellow-300 hover:bg-primary/20"
@@ -51,8 +53,8 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500",
-        // ✅ Services page style
-        isServicesPage
+        // ✅ Services + Gallery scroll background
+        isServicesPage || isGalleryPage
           ? isScrolled
             ? "bg-[#68705c] shadow-xl border-b border-primary/10"
             : "bg-transparent"
@@ -128,7 +130,7 @@ export function Header() {
                     : "/#contact"
 
                 const mobileTextClass =
-                  isServicesPage || isGallery
+                  isServicesPage || isGalleryPage
                     ? "text-gray-800 hover:text-primary hover:bg-primary/10"
                     : "text-gray-800 hover:text-primary hover:bg-gray-100/10"
 

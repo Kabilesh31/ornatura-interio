@@ -4,12 +4,14 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Eye, Heart, Share2 } from "lucide-react"
+import { Eye, Heart } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { cn } from "@/lib/utils"
+
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const [previewImage, setPreviewImage] = useState<string | null>(null)
 
   const categories = [
     { id: "all", name: "All Projects" },
@@ -217,7 +219,7 @@ export default function GalleryPage() {
         {/* Hero Section */}
         <section className="relative py-20 text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[color:var(--foreground)]">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 mt-5 text-[color:var(--foreground)]">
               Our Gallery
             </h1>
             <p className="text-lg text-[color:var(--muted-foreground)] max-w-2xl mx-auto">
@@ -229,21 +231,21 @@ export default function GalleryPage() {
         {/* Category Filter */}
         <section className="py-12 flex-1">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 -mt-14 mb-12">
               {categories.map((category) => (
                 <Button
-  key={category.id}
-  variant={selectedCategory === category.id ? "default" : "outline"}
-  onClick={() => setSelectedCategory(category.id)}
-  className={cn(
-    "transition-all duration-300 hover:scale-105 border-[color:var(--muted)]",
-    selectedCategory === category.id
-      ? "bg-[color:var(--primary)] text-white hover:bg-[color:var(--secondary)]"
-      : "text-[color:var(--foreground)]"
-  )}
->
-  {category.name}
-</Button>
+                  key={category.id}
+                  variant={selectedCategory === category.id ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={cn(
+                    "transition-all duration-300 hover:scale-105 border-[color:var(--muted)]",
+                    selectedCategory === category.id
+                      ? "bg-[color:var(--primary)] text-white hover:bg-[color:var(--secondary)]"
+                      : "text-[color:var(--foreground)]"
+                  )}
+                >
+                  {category.name}
+                </Button>
               ))}
             </div>
 
@@ -255,31 +257,23 @@ export default function GalleryPage() {
                   className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-[color:var(--card)] text-[color:var(--card-foreground)]"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative overflow-hidden">
+                  <div
+                    className="relative overflow-hidden cursor-pointer"
+                    onClick={() => setPreviewImage(project.image)}
+                  >
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex gap-4">
-                        <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-md">
-                          <Eye className="w-4 h-4" />
-                        </Button>
-                        <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-md">
-                          <Heart className="w-4 h-4" />
-                        </Button>
-                        <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-md">
-                          <Share2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
                     <Badge className="absolute top-4 left-4 bg-[color:var(--primary)]/90 text-[color:var(--primary-foreground)] backdrop-blur-md">
                       {categories.find((cat) => cat.id === project.category)?.name}
                     </Badge>
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-[color:var(--foreground)]">{project.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-[color:var(--foreground)]">
+                      {project.title}
+                    </h3>
                     <p className="text-[color:var(--muted-foreground)] mb-4">{project.description}</p>
                     <div className="flex items-center justify-between text-sm text-[color:var(--muted-foreground)]">
                       <div className="flex items-center gap-4">
@@ -302,6 +296,21 @@ export default function GalleryPage() {
 
         <Footer />
       </div>
+
+      {/* Image Preview Modal */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          onClick={() => setPreviewImage(null)}
+        >
+          <img
+            src={previewImage}
+            alt="Preview"
+            className="max-w-[80%] max-h-[90%] rounded-lg shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   )
 }

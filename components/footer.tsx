@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Instagram, Twitter, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -99,31 +100,31 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#home" className="text-background/80 hover:text-background transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="text-background/80 hover:text-background transition-colors">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-background/80 hover:text-background transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-background/80 hover:text-background transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+       <div>
+  <h3 className="font-semibold mb-4">Quick Links</h3>
+  <ul className="space-y-2 text-sm">
+    <li>
+      <Link href="/" className="text-background/80 hover:text-background transition-colors">
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link href="/#projects" className="text-background/80 hover:text-background transition-colors">
+        Projects
+      </Link>
+    </li>
+    <li>
+      <Link href="/#about" className="text-background/80 hover:text-background transition-colors">
+        About Us
+      </Link>
+    </li>
+    <li>
+      <Link href="/#contact" className="text-background/80 hover:text-background transition-colors">
+        Contact
+      </Link>
+    </li>
+  </ul>
+</div>
 
           {/* Newsletter */}
           <div>
@@ -145,8 +146,8 @@ export function Footer() {
         </div>
 
         <div className="border-t border-background/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-background/80 text-sm">© {currentYear} Ornatura Interio. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <p className="text-background/80 text-sm md:ml-140 ">© {currentYear} Ornatura Interio. All rights reserved.</p>
+          {/* <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-background/80 hover:text-background text-sm transition-colors">
               Privacy Policy
             </a>
@@ -156,7 +157,7 @@ export function Footer() {
             <a href="#" className="text-background/80 hover:text-background text-sm transition-colors">
               Cookie Policy
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

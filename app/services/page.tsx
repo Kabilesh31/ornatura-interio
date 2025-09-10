@@ -147,7 +147,7 @@ export default function ServicesPage() {
         {/* Service Details */}
     <section className="py-16 md:py-20 px-4 bg-[color:var(--background)]">
   <div className="container mx-auto max-w-6xl relative">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-30"> 
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-40"> 
       {/* 👆 gap-x for left/right, gap-y for top/bottom row spacing */}
       {services.map((service, index) => (
         <motion.div
