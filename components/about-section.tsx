@@ -27,7 +27,7 @@ export function AboutSection() {
 
           <div className="max-w-4xl mx-auto space-y-6 text-gray-900 leading-relaxed text-justify font-diphylleia-italic text-[1.25rem]">
             <p>
-              At <span className="font-diphylleia-bold font-normal">Ornatura Interior</span>, we are passionate about transforming
+              At <span className="font-diphylleia-bold font-normal">Ornatura</span>, we are passionate about transforming
               spaces into timeless works of art. As one of Coimbatore’s leading architectural and interior design firms,
               we specialize in crafting bespoke solutions that balance creativity, precision, and functionality.
             </p>
@@ -46,7 +46,7 @@ export function AboutSection() {
             </p>
 
             <p>
-              At <span className="font-diphylleia-bold font-normal">Ornatura Interior</span>, we don’t just design spaces—
+              At <span className="font-diphylleia-bold font-normal">Ornatura </span>, we don’t just design spaces—
               we craft <span className="font-diphylleia-italic">experiences</span>.
             </p>
           </div>

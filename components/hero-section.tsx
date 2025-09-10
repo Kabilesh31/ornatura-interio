@@ -164,10 +164,10 @@ export function HeroSection() {
           }`}
           key={currentSlide}
         >
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-white/20 float-animation">
+          {/* <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-white/20 float-animation">
             <Star className="w-4 h-4 text-yellow-400 fill-current" />
             <span className="text-sm font-medium">Award Winning Design Studio</span>
-          </div>
+          </div> */}
 
           <div className="mb-4">
             <p className="text-sm tracking-widest text-white/80 mb-2">{currentContent.subtitle}</p>
@@ -189,7 +189,7 @@ export function HeroSection() {
         </div>
 
         {/* Stats Section */}
-        <div
+        {/* <div
           className={`mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto transition-all duration-1000 delay-500 stagger-animation ${
             isVisible ? "fade-in-up" : "opacity-0 translate-y-8"
           }`}
@@ -206,7 +206,7 @@ export function HeroSection() {
             <div className="text-3xl font-bold text-secondary mb-2">98%</div>
             <div className="text-sm text-white/80">Client Satisfaction</div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll Down Indicator */}
