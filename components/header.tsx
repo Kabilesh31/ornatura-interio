@@ -64,14 +64,14 @@ export function Header() {
       )}
     >
       <div className="container-responsive py-3 sm:py-4">
-        <div className="flex items-center justify-start gap-60">
+        <div className="flex items-center justify-start gap-62">
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
             <img
               src="/logo.png"
               alt="Ornatura Interio Logo"
               className={cn(
-                "w-20 mt-2 sm:w-38 md:w-60 transition-all duration-300 ml-4 sm:ml-6",
+                "w-30 mt-2 sm:w-38 md:w-60 transition-all duration-300 ml-1 sm:ml-6",
                 isScrolled ? "opacity-80" : "opacity-100"
               )}
             />
@@ -106,7 +106,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden fixed top-2 left-82 h-10 w-10 rounded-lg bg-grey text-chart-2 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
+            className="lg:hidden fixed top-2 left-82 h-10 w-10 rounded-lg bg-grey text-chart-6 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
