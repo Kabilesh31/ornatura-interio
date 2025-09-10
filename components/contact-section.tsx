@@ -164,7 +164,7 @@ export function ContactSection() {
           onChange={handleChange}
           required
           className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 border-primary/20 hover:border-primary/40"
-          placeholder="your.email@example.com"
+          placeholder="Enter your email"
         />
       </div>
     </div>
