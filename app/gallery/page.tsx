@@ -4,14 +4,14 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Eye, Heart } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react" // 👈 import arrows
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { cn } from "@/lib/utils"
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [previewImage, setPreviewImage] = useState<string | null>(null)
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null) // 👈 store index
 
   const categories = [
     { id: "all", name: "All Projects" },
@@ -202,7 +202,17 @@ export default function GalleryPage() {
     selectedCategory === "all"
       ? projects
       : projects.filter((project) => project.category === selectedCategory)
+const showPrev = () => {
+    if (previewIndex !== null) {
+      setPreviewIndex((previewIndex - 1 + filteredProjects.length) % filteredProjects.length)
+    }
+  }
 
+  const showNext = () => {
+    if (previewIndex !== null) {
+      setPreviewIndex((previewIndex + 1) % filteredProjects.length)
+    }
+  }
   return (
     <div className="min-h-screen flex flex-col relative bg-[color:var(--background)]">
       {/* Dimmed Background Image */}
@@ -259,7 +269,7 @@ export default function GalleryPage() {
                 >
                   <div
                     className="relative overflow-hidden cursor-pointer"
-                    onClick={() => setPreviewImage(project.image)}
+                    onClick={() => setPreviewIndex(index)} 
                   >
                     <img
                       src={project.image || "/placeholder.svg"}
@@ -271,10 +281,10 @@ export default function GalleryPage() {
                     </Badge>
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-[color:var(--foreground)]">
+                    <h3 className="text-xl font-semibold  text-[color:var(--foreground)]">
                       {project.title}
                     </h3>
-                    <p className="text-[color:var(--muted-foreground)] mb-4">{project.description}</p>
+                    {/* <p className="text-[color:var(--muted-foreground)] mb-4">{project.description}</p>
                     <div className="flex items-center justify-between text-sm text-[color:var(--muted-foreground)]">
                       <div className="flex items-center gap-4">
                         <span className="flex items-center gap-1">
@@ -286,7 +296,7 @@ export default function GalleryPage() {
                           {project.likes}
                         </span>
                       </div>
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               ))}
@@ -298,17 +308,42 @@ export default function GalleryPage() {
       </div>
 
       {/* Image Preview Modal */}
-      {previewImage && (
+      {previewIndex !== null && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-          onClick={() => setPreviewImage(null)}
+          onClick={() => setPreviewIndex(null)} // close on outside click
         >
-          <img
-            src={previewImage}
-            alt="Preview"
-            className="max-w-[80%] max-h-[90%] rounded-lg shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="relative flex items-center justify-center w-full h-full">
+            {/* Prev Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                showPrev()
+              }}
+              className="absolute left-5 top-1/2 -translate-y-1/2 text-white bg-black/50 rounded-full p-3 hover:bg-black/70 transition"
+            >
+              <ChevronLeft size={32} />
+            </button>
+
+            {/* Image */}
+            <img
+              src={filteredProjects[previewIndex].image}
+              alt="Preview"
+              className="max-w-[80%] max-h-[90%] rounded-lg shadow-xl"
+              onClick={(e) => e.stopPropagation()} // prevent closing on image click
+            />
+
+            {/* Next Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                showNext()
+              }}
+              className="absolute right-5 top-1/2 -translate-y-1/2 text-white bg-black/50 rounded-full p-3 hover:bg-black/70 transition"
+            >
+              <ChevronRight size={32} />
+            </button>
+          </div>
         </div>
       )}
     </div>

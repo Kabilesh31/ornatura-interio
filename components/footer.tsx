@@ -76,14 +76,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#styling" className="text-background/80 hover:text-background transition-colors">
-                  Interior Styling
-                </a>
-              </li>
+              
               <li>
                 <a href="#studio" className="text-background/80 hover:text-background transition-colors">
-                  Interior Design Studio
+                  Interior Design 
                 </a>
               </li>
               <li>
@@ -96,11 +92,16 @@ export function Footer() {
                   Architecture
                 </a>
               </li>
+              <li>
+                <a href="#styling" className="text-background/80 hover:text-background transition-colors">
+                  Landscape
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Quick Links */}
-       <div>
+<div>
   <h3 className="font-semibold mb-4">Quick Links</h3>
   <ul className="space-y-2 text-sm">
     <li>
@@ -109,22 +110,28 @@ export function Footer() {
       </Link>
     </li>
     <li>
-      <Link href="/#projects" className="text-background/80 hover:text-background transition-colors">
-        Projects
-      </Link>
-    </li>
-    <li>
       <Link href="/#about" className="text-background/80 hover:text-background transition-colors">
         About Us
       </Link>
     </li>
     <li>
+      <Link href="/services" className="text-background/80 hover:text-background transition-colors">
+        Services
+      </Link>
+    </li>
+    <li>
+      <Link href="/gallery" className="text-background/80 hover:text-background transition-colors">
+        Gallery
+      </Link>
+    </li>
+    <li>
       <Link href="/#contact" className="text-background/80 hover:text-background transition-colors">
-        Contact
+        Enquiry
       </Link>
     </li>
   </ul>
 </div>
+
 
           {/* Newsletter */}
           <div>
