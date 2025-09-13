@@ -36,14 +36,8 @@ export function ContactSection() {
   return (
     <section
   id="contact"
-  className={`relative py-62 top-25 md:-mb-15 ${diphylleia.className}`}
-  style={{
-    backgroundImage: 'url("/cont7.pnggh")', // full section background
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed', // fixed background
-  }}
+  className={`relative py-62 top-25 mx-auto md:-mb-15 ${diphylleia.className}`}
+  
 >
   <div className="absolute inset-10 bg-black/1"></div>
       <div className="container mx-auto px-4">
@@ -57,7 +51,7 @@ export function ContactSection() {
   <img
     src="/decor25.png"
     alt="Decorative Left"
-    className=" h-20 md:h-142 md:w-152 w-400 h-150 -mt-125  md:-mt-0 object-contain -scale-x-100 opacity-25"
+    className=" h-20 md:h-142 md:w-152 w-100 h-150 -mt-125  md:-mt-0 object-contain -scale-x-100 opacity-25"
   />
 
   {/* Right Image (mirrored horizontally + vertically) */}
@@ -80,7 +74,7 @@ export function ContactSection() {
 
           {/* Contact Form */}
           
-       <Card className="max-w-3xl -mt-12 md:mt-0 md:mb-11 md:ml-30 bg-white/90 backdrop-blur-md border border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-500">
+       <Card className="max-w-3xl -mt-12 md:mt-0 md:mb-11  md:ml-30 bg-white/90 backdrop-blur-md border border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-500">
           <CardHeader className="text-center pb-4">
             <div className="flex items-center justify-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-md">

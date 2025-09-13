@@ -14,11 +14,10 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 
 export function Header() {
- const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
-  const [isMobileSubMenuOpen, setIsMobileSubMenuOpen] = useState(false)
-  const [forceScrolled, setForceScrolled] = useState(false) // ✅ unified state
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false) // desktop submenu
+  const [isMobileSubMenuOpen, setIsMobileSubMenuOpen] = useState(false) // mobile submenu
 
   const submenuRef = useRef<HTMLDivElement | null>(null)
 
@@ -34,39 +33,39 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Detect About Us (#about) or Enquiry (#contact)
+  // Close desktop submenu on outside click
   useEffect(() => {
-    const checkHash = () => {
-      const hash = window.location.hash
-      setForceScrolled(hash === "#contact" || hash === "#about")
+    const handleClickOutside = (event: MouseEvent) => {
+      if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
+        setIsSubMenuOpen(false)
+      }
     }
-    checkHash() // run once
-    window.addEventListener("hashchange", checkHash)
-    return () => window.removeEventListener("hashchange", checkHash)
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   // Nav link style
   const getNavStyle = () => {
-    if (isHomePage || isServicesPage || forceScrolled) return "text-white hover:text-white/80"
+    if (isHomePage || isServicesPage) return "text-white hover:text-white/80"
     if (isGalleryPage) return isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-white-400"
     return isScrolled ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/80"
   }
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500",
-        isGalleryPage || forceScrolled
-          ? "bg-[#727a66] shadow-xl border-b border-primary/10" // ✅ Gallery, About Us, Enquiry
-          : isHomePage || isServicesPage
-          ? isScrolled
-            ? "bg-[#727a66] shadow-xl border-b border-primary/10"
-            : "bg-transparent"
-          : isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-xl border-b border-primary/10"
-          : "bg-transparent"
-      )}
-    >
+   <header
+  className={cn(
+    "fixed top-0 w-full z-50 transition-all duration-500",
+    isGalleryPage
+      ? "bg-[#727a66] shadow-xl border-b border-primary/10" // always scrolled style for Gallery
+      : isHomePage || isServicesPage
+      ? isScrolled
+        ? "bg-[#727a66] shadow-xl border-b border-primary/10"
+        : "bg-transparent"
+      : isScrolled
+      ? "bg-background/95 backdrop-blur-md shadow-xl border-b border-primary/10"
+      : "bg-transparent"
+  )}
+>
 
       <div className="container-responsive py-3 sm:py-4">
         <div className="flex items-center justify-start gap-62">

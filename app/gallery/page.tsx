@@ -4,27 +4,28 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ChevronLeft, ChevronRight } from "lucide-react" // 👈 import arrows
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { cn } from "@/lib/utils"
-import { Playwrite_AU_VIC } from "next/font/google";
-import { Diphylleia } from 'next/font/google'
+import { Playwrite_AU_VIC } from "next/font/google"
+import { Diphylleia } from "next/font/google"
 
-// ✅ Load font at module scope
+// ✅ Fonts
 const diphylleia = Diphylleia({
-  subsets: ['latin'],
-  weight: ['400']
+  subsets: ["latin"],
+  weight: ["400"],
 })
 
 const playwrite = Playwrite_AU_VIC({
-  weight: ["400","100","200"], // choose weights
+  weight: ["100", "200", "400"],
   style: "normal",
   display: "swap",
-});
+})
+
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [previewIndex, setPreviewIndex] = useState<number | null>(null) // 👈 store index
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null)
 
   const categories = [
     { id: "all", name: "All Projects" },
@@ -35,8 +36,6 @@ export default function GalleryPage() {
     { id: "wooden", name: "Wooden" },
     { id: "reception", name: "Reception" },
     { id: "bathroom", name: "Bathroom" },
-    
-    
   ]
   const projects = [
     // example projects
@@ -618,15 +617,12 @@ const showPrev = () => {
       
 
       {/* Page Content */}
-      <div className="relative flex flex-col min-h-screen z-10">
-        <Header />
+      <Header />  {/* <-- always on top layer */}
+<div className="relative flex flex-col min-h-screen z-10">
 
         {/* Hero Section */}
   <section className="relative py-20 text-center">
-    <div
-        className="absolute inset-1 -ml-24 w-[1750px] -top-94 bg-cover  opacity-23 pointer-events-none"
-        style={{ backgroundImage: "url('/decor16.pngs')" }}
-      />
+    
       
   <div className="container mx-auto px-4">
     <h1
@@ -654,67 +650,62 @@ const showPrev = () => {
 
 
         {/* Category Filter */}
-       <section className="py-12 flex-1">
+<section className="py-12 flex-1">
   <div className="container mx-auto px-4">
     {/* Category Buttons */}
-  <div className="flex flex-wrap justify-center gap-4 -mt-14 mb-12">
-  {categories.map((category) => (
-    <Button
-  key={category.id}
-  variant={selectedCategory === category.id ? "default" : "outline"}
-  onClick={() => setSelectedCategory(category.id)}
-  className={cn(
-    `${diphylleia.className} font-extrabold transition-all duration-300 hover:scale-105 border-[color:var(--muted)]`,
-    selectedCategory === category.id
-      ? "bg-[color:var(--primary)] text-white hover:bg-[color:var(--secondary)]"
-      : "text-[color:var(--foreground)]"
-  )}
->
-  {category.name}
-</Button>
-
-  ))}
-</div>
-
-
-    {/* Projects Grid */}
-{/* Projects Grid - Masonry Layout */}
-<div className="columns-1 md:columns-2 lg:columns-4 gap-1 space-y-7 md:-mt-5">
-  {filteredProjects.map((project, index) => (
-    <div
-      key={project.id}
-      className="break-inside-avoid relative group cursor-pointer overflow-hidden relative group cursor-pointer overflow-hidden group-hover-shrink"
-      onClick={() => setPreviewIndex(index)}
-    >
-      {/* Image */}
-     <img
-  src={project.image || "/placeholder.svg"}
-  alt={project.title}
-  className="w-[95%] mx-auto object-cover transition-transform duration-500 group-hover:scale-95"
-/>
-
-      {/* Title Overlay */}
-     {/* Title Overlay */}
-<div className="absolute inset-0 flex items-center justify-center pointer-events-none px-6 py-4">
-  <h3 className="text-xl md:text-2xl text-white text-center leading-tight transition-all duration-500 group-hover:-translate-y-6">
-  <span className="font-thin tracking-widest block">
-    {project.title.split(" ").slice(0, 1).join(" ").toUpperCase()}
-  </span>
-  <span className="font-extrabold block">
-    {project.title.split(" ").slice(1).join(" ").toUpperCase()}
-  </span>
-</h3>
-</div>
-
-
-      {/* Hover Outline */}
-<div className="absolute inset-12 border-2 border-gray-400 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-in-out pointer-events-none "></div>
+    <div className="flex flex-wrap justify-center gap-2 sm:gap-4 -mt-10 sm:-mt-14 mb-8 sm:mb-12">
+      {categories.map((category) => (
+        <Button
+          key={category.id}
+          variant={selectedCategory === category.id ? "default" : "outline"}
+          onClick={() => setSelectedCategory(category.id)}
+          className={cn(
+            `${diphylleia.className} font-extrabold text-xs sm:text-sm md:text-base px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 transition-all duration-300 hover:scale-105 border-[color:var(--muted)]`,
+            selectedCategory === category.id
+              ? "bg-[color:var(--primary)] text-white hover:bg-[color:var(--secondary)]"
+              : "text-[color:var(--foreground)]"
+          )}
+        >
+          {category.name}
+        </Button>
+      ))}
     </div>
-  ))}
-</div>
 
+    {/* Projects Grid - Masonry Layout */}
+    <div className="columns-1 sm:columns-2 lg:columns-4 gap-1 space-y-5 sm:space-y-7 md:-mt-5">
+      {filteredProjects.map((project, index) => (
+        <div
+          key={project.id}
+          className="break-inside-avoid relative group cursor-pointer overflow-hidden"
+          onClick={() => setPreviewIndex(index)}
+        >
+          {/* Image */}
+          <img
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            className="w-full sm:w-[95%] mx-auto object-cover transition-transform duration-500 group-hover:scale-95"
+          />
+
+          {/* Title Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-3 sm:px-6 py-2 sm:py-4">
+            <h3 className="text-base sm:text-xl md:text-2xl text-white text-center leading-tight transition-all duration-500 group-hover:-translate-y-6">
+              <span className="font-thin tracking-widest block">
+                {project.title.split(" ").slice(0, 1).join(" ").toUpperCase()}
+              </span>
+              <span className="font-extrabold block">
+                {project.title.split(" ").slice(1).join(" ").toUpperCase()}
+              </span>
+            </h3>
+          </div>
+
+          {/* Hover Outline */}
+          <div className="absolute inset-6 sm:inset-12 border-2 border-gray-400 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-in-out pointer-events-none" />
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
 
 
         <Footer />
