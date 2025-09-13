@@ -626,7 +626,7 @@ const showPrev = () => {
       
   <div className="container mx-auto px-4">
     <h1
-      className={`${playwrite.className} text-4xl md:text-5xl font-bold  mb-6 mt-24 text-[color:var(--foreground)]`}
+      className={`${playwrite.className} text-4xl md:text-5xl font-bold mt-15 mb- md:mb-6 md:mt-24 text-[color:var(--foreground)]`}
     >
       Gallery
     </h1>
@@ -653,7 +653,7 @@ const showPrev = () => {
 <section className="py-12 flex-1">
   <div className="container mx-auto px-4">
     {/* Category Buttons */}
-    <div className="flex flex-wrap justify-center gap-2 sm:gap-4 -mt-10 sm:-mt-14 mb-8 sm:mb-12">
+    <div className="flex flex-wrap justify-center gap-2 sm:gap-4 -mt-30 sm:-mt-20 mb-8 sm:mb-12">
       {categories.map((category) => (
         <Button
           key={category.id}

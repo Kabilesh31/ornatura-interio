@@ -36,10 +36,10 @@ export function ContactSection() {
   return (
     <section
   id="contact"
-  className={`relative py-62 top-25 mx-auto md:-mb-15 ${diphylleia.className}`}
+  className={`relative py-62 top-25 -mt-10 md:mt-10 mx-auto md:-mb-15 ${diphylleia.className}`}
   
 >
-  <div className="absolute inset-10 bg-black/1"></div>
+  <div className="absolute inset-10 bg-black/0"></div>
       <div className="container mx-auto px-4">
         <div className="text-center -mt-12 mb-20">
           <h2 className={`${playwrite.className} text-3xl md:text-4xl font-extrabold text-gray-700`}>

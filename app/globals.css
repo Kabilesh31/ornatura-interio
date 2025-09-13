@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@400;600&display=swap');
 
 
 @custom-variant dark (&:is(.dark *));
@@ -238,6 +239,7 @@ h2, h3, label, button {
 .playwrite-font {
   font-family: "Playwrite AU VIC", sans-serif;
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
