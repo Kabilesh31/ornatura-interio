@@ -1,10 +1,23 @@
 "use client"
+import { Playwrite_AU_VIC } from "next/font/google";
+import { Diphylleia } from 'next/font/google'
 
+// ✅ Load font at module scope
+const diphylleia = Diphylleia({
+  subsets: ['latin'],
+  weight: ['400']
+})
+
+const playwrite = Playwrite_AU_VIC({
+  weight: ["400","100","200"], // choose weights
+  style: "normal",
+  display: "swap",
+});
 export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-32 -mt-10 -mb-20 - overflow-hidden bg-[#e9e8e6] text-primary"
+      className="relative py-27 -mt-10 -mb-45 - overflow-hidden bg-[#e9e8e6] text-primary"
     >
       {/* Video Background */}
       <video
@@ -21,9 +34,11 @@ export function AboutSection() {
       <div className="relative container mx-auto px-4 z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="mb-14 -mt-10 text-gray-900 font-diphylleia-italic text-[1.8rem] md:text-[3.8rem] leading-tight">
-            About Ornatura Interio
-          </h2>
+         <h2
+  className={`${playwrite.className} mb-14 -mt-0 text-gray-700 font-semibold text-[1.8rem] md:text-[2.8rem] leading-tight`}
+>
+  About Ornatura Interio
+</h2>
 
           <div className="max-w-4xl mx-auto space-y-6 text-gray-900 leading-relaxed text-justify font-diphylleia-italic text-[1.25rem]">
             <p>

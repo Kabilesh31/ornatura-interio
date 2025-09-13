@@ -172,9 +172,9 @@ export default function ServicesPage() {
             {service.title}
           </h3>
 
-          <p className="text-[color:var(--muted-foreground)] mb-3 text-sm sm:text-base">
-            {service.description}
-          </p>
+        <p className="text-[color:var(--muted-foreground)] mb-3 text-sm sm:text-base text-justify">
+  {service.description}
+</p>
 
           {/* Step Box with margin */}
           <div className="absolute bottom-4 left-4 right-4">

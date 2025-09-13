@@ -1,336 +1,199 @@
-"use client"
+'use client';
 
-import type React from "react"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin, Phone, Mail, Clock, Send, User, MessageSquare,Compass,Navigation,MapPinOff,Map,  } from "lucide-react"
-import { Martel_Sans } from 'next/font/google'
-import { Leckerli_One } from 'next/font/google'
-import { Permanent_Marker } from 'next/font/google'
-import { Diphylleia } from 'next/font/google'
+import { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { MessageSquare } from 'lucide-react';
+import { Diphylleia, Playwrite_AU_VIC } from 'next/font/google';
 
-// ✅ Load font at module scope
-const diphylleia = Diphylleia({
-  subsets: ['latin'],
-  weight: ['400']
-})
-
-
-// ✅ Font must be loaded at module scope
-const permanentMarker = Permanent_Marker({ subsets: ['latin'], weight: ['400'] })
-
-const leckerliOne = Leckerli_One({ subsets: ['latin'], weight: ['400'] })
+const diphylleia = Diphylleia({ subsets: ['latin'], weight: ['400'] });
+const playwrite = Playwrite_AU_VIC({ weight: ['400'], style: 'normal', display: 'swap' });
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "", 
-    message: "",
-    projectType: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+    projectType: '',
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
-  const contactInfo = [
-    {
-  icon: MapPin,
-  title: "Location",
-  details: [
-    "347, DS Complex, Nehru Street, Ramnagar Street",
-    "Coimbatore - 641009",
-    "Tamil Nadu, India",
-    <br/>,
-    " Note: Visit us - on appointment basis", // added note
-  ],
-  color: "text-gray-800",
-  bgColor: "bg-gray-700/10",
-},
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: ["+91 94874 35050"],
-      color: "text-green-500",
-      bgColor: "bg-gray-700/10",
-    },
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: ["ar.ornatura@gmail.com"],
-      color: "text-blue-500",
-      bgColor: "bg-gray-700/10",
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      details: ["Tue - Sat: 10:00 AM - 7:00 PM", "Sun: 11:00 AM - 4:00 PM", "Monday Holiday"],
-      color: "text-orange-800",
-      bgColor: "bg-gray-700/10",
-    },
-  ]
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
 
   return (
-     <section id="contact" className={`relative py-25 -mt-12 overflow-hidden ${diphylleia.className}`}>
+    <section
+  id="contact"
+  className={`relative py-62 top-25 md:-mb-15 ${diphylleia.className}`}
+  style={{
+    backgroundImage: 'url("/cont7.pnggh")', // full section background
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed', // fixed background
+  }}
+>
+  <div className="absolute inset-10 bg-black/1"></div>
+      <div className="container mx-auto px-4">
+        <div className="text-center -mt-12 mb-20">
+          <h2 className={`${playwrite.className} text-3xl md:text-4xl font-extrabold text-gray-700`}>
+            Start Your Dream Project
+          </h2>
+        </div>
+        <div className="relative flex items-center justify-center max-w-5xl mx-auto md:-mt-118 -mb-20 md:-mb-32 gap-6">
+  {/* Left Image */}
+  <img
+    src="/decor25.png"
+    alt="Decorative Left"
+    className=" h-20 md:h-142 md:w-152 w-400 h-150 -mt-125  md:-mt-0 object-contain -scale-x-100 opacity-25"
+  />
 
-  {/* Video Background */}
-  <video
-    className="absolute inset-0 w-full h-full object-cover"
-    autoPlay
-    muted
-    loop
-    playsInline
-  >
-    <source src="/video2.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  {/* Right Image (mirrored horizontally + vertically) */}
+  {/* <img
+    src="/decor24.png"
+    alt="Decorative Right"
+    className="h-20 md:h-32 md:w-68 object-contain transform -scale-x-100 -scale-y-100"
+  /> */}
+</div>
 
-  {/* White overlay with opacity */}
-  <div className="absolute inset-0 bg-[#e7e6e4]/90"></div>
 
-  {/* Content above overlay */}
-  <div className="relative container mx-auto px-4 z-10">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-        Start Your Dream Project
-      </h2>
-      <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-        Ready to transform your space into something extraordinary? Let's
-        discuss your vision and bring it to life with our expert design team.
-      </p>
-    </div>
+      <img
+    src="/decor63.png"
+    alt="Background Interior Design"
+    className="hidden md:block w-[350px] h-[700px] mt-50 -mb-150 -ml-30 md:mt-5 md:ml-62 md:-mb-151 opacity-50 "
+  />  {/* Unified container */}
+        <div className="relative flex flex-col lg:flex-row items-stretch gap-6 max-w-6xl h-[500px] mx-auto">
+          {/* Image */}
+          
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      {/* Left Column - Contact Form */}
-      <Card className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-primary/10 bg-background/80 backdrop-blur-md relative z-10">
-        <CardHeader className="text-center pb-6">
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg glow-effect animate-bounce">
-              <MessageSquare className="w-6 h-6 text-primary-foreground" />
+          {/* Contact Form */}
+          
+       <Card className="max-w-3xl -mt-12 md:mt-0 md:mb-11 md:ml-30 bg-white/90 backdrop-blur-md border border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-500">
+          <CardHeader className="text-center pb-4">
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-md">
+                <MessageSquare className="w-6 h-6 text-white" />
+              </div>
+              <CardTitle
+                className={`text-2xl md:text-3xl font-bold text-gray-800 ${diphylleia.className}`}
+              >
+                Send Us a Message
+              </CardTitle>
             </div>
-            <CardTitle className="text-3xl font-bold text-gradient">
-              Send Us a Message
-            </CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-  <form onSubmit={handleSubmit} className="space-y-6">
-    {/* Name + Email */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="space-y-2">
-        <label
-          htmlFor="name"
-          className="flex items-center gap-2 text-sm font-medium"
-        >
-          <User className="w-5 h-4 text-primary" />
-          Full Name *
-        </label>
-        <Input
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 border-primary/20 hover:border-primary/40"
-          placeholder="Enter your full name"
-        />
-      </div>
-      <div className="space-y-2">
-        <label
-          htmlFor="email"
-          className="flex items-center gap-2 text-sm font-medium"
-        >
-          <Mail className="w-4 h-4 text-primary" />
-          Email Address *
-        </label>
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 border-primary/20 hover:border-primary/40"
-          placeholder="Enter your email"
-        />
-      </div>
-    </div>
+          </CardHeader>
 
-    {/* Phone + Service */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="space-y-2">
-        <label
-          htmlFor="phone"
-          className="flex items-center gap-2 text-sm font-medium"
-        >
-          <Phone className="w-4 h-4 text-primary" />
-          Phone Number
-        </label>
-        <Input
-          id="phone"
-          name="phone"
-          type="tel"
-          value={formData.phone}
-          onChange={handleChange}
-          className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 border-primary/20 hover:border-primary/40"
-          placeholder="+91 98765 43210"
-        />
-      </div>
-      <div className="space-y-2">
-        <label
-          htmlFor="service"
-          className="block text-sm font-medium"
-        >
-          Service Required *
-        </label>
-        <select
-          id="service"
-          name="service"
-          value={formData.service}
-          onChange={handleChange}
-          required
-          className="w-full px-3 py-2 border border-primary/20 bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:border-primary/40"
-        >
-          <option value="">Select a service</option>
-          <option value="interior-design">Interior Design</option>
-          <option value="renovation">Renovation</option>
-          <option value="architecture">Architecture</option>
-          <option value="landscape">Landscape</option>
-        </select>
-      </div>
-    </div>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                <Input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Full Name *"
+                  required
+                />
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email *"
+                  required
+                />
+              </div>
 
-    {/* Project Type (full width) */}
-    <div className="space-y-2">
-      <label
-        htmlFor="projectType"
-        className="block text-sm font-medium"
-      >
-        Project Type *
-      </label>
-      <select
-        id="projectType"
-        name="projectType"
-        value={formData.projectType}
-        onChange={handleChange}
-        required
-        className="w-full px-3 py-2 border border-primary/20 bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:border-primary/40"
-      >
-        <option value="">Select project type</option>
-        <option value="apartment">Apartment</option>
-        <option value="villa">Villa</option>
-        <option value="others">Others</option>
-      </select>
-    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Input
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                />
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                >
+                  <option value="">Select a service *</option>
+                  <option value="interior-design">Interior Design</option>
+                  <option value="renovation">Renovation</option>
+                  <option value="architecture">Architecture</option>
+                  <option value="landscape">Landscape</option>
+                </select>
+              </div>
 
-    {/* Message */}
-    <div className="space-y-2">
-      <label
-        htmlFor="message"
-        className="flex items-center gap-2 text-sm font-medium"
-      >
-        <MessageSquare className="w-4 h-4 text-primary" />
-        Project Details *
-      </label>
-      <Textarea
-        id="message"
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        rows={5}
-        required
-        placeholder="Tell us about your project vision, timeline, budget range, and any specific requirements..."
-        className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 border-primary/20 hover:border-primary/40 resize-none"
-      />
-    </div>
+              <select
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              >
+                <option value="">Select project type *</option>
+                <option value="apartment">Apartment</option>
+                <option value="villa">Villa</option>
+                <option value="others">Others</option>
+              </select>
 
-    {/* Submit */}
-    <Button
-      type="submit"
-      size="lg"
-      className="w-full group bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-xl glow-effect transition-all duration-300 hover:scale-105"
-    >
-      Send Message
-      <MessageSquare className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-    </Button>
-  </form>
-</CardContent>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={4}
+                required
+                placeholder="Project Details *"
+              />
 
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full bg-gradient-to-r from-primary mt-9 to-primary/80 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                Send Message
+                <MessageSquare className="h-4 w-4" />
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+          {/* Image Section - No container */}
 
-        {/* Location Card */}
-       <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-primary/ w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mt-5 mx-auto">
+  {/* Background image (fills half side) */}
+  <img
+    src="/decor63.png"
+    alt="Background Interior Design"
+    className="hidden md:block w-[350px] h-[700px] -mt-180 md:-mt-25 md:-ml-5 opacity-50 -scale-x-100"
+  />
   
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.3073904968364!2d76.96067417771609!3d11.015547861167242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8591efcd0eea5%3A0x2b87873e6e1962ff!2sDS%20Complex!5e0!3m2!1sen!2sin!4v1757516607834!5m2!1sen!2sin"
-    width="100%"
-    height="240"
- 
-    allowFullScreen
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    className="rounded-lg"
-  ></iframe>
-</Card>
+
+  {/* Overlay */}
+  <div className="absolute inset-80 bg-gradient-to-t from-gray-200/80 via-transparent to-gray-200/80"></div>
+
+  {/* Foreground image (centered on top) */}
+  <img
+  src="/decor70.png"
+  alt="Foreground Image"
+  className="hidden md:block absolute inset-0 max-w-[310px] h-[450px] md:ml-170 md:mt-1 opacity-90 object-contain pointer-events-none"
+/>
 
 
 
-
-
-      </Card>
-
-      {/* Right Column - Contact Info */}
-      <div className="space-y-6 relative z-10">
-        {contactInfo.map((info, index) => {
-          const Icon = info.icon
-          return (
-            <Card
-              key={info.title}
-              className="hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-primary/10 bg-background/80 backdrop-blur-md"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div
-                    className={`w-14 h-14 ${info.bgColor} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg transition-all duration-300 hover:scale-110`}
-                  >
-                    <Icon className={`w-6 h-6 ${info.color}`} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-lg mb-3 text-gradient">
-                      {info.title}
-                    </h3>
-                    {info.details.map((detail, idx) => (
-                      <p
-                        key={idx}
-                        className="text-muted-foreground mb-1 hover:text-primary transition-colors duration-300"
-                      >
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )
-        })}
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-  )
+    </section>
+  );
 }
