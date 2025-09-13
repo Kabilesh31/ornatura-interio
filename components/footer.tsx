@@ -27,7 +27,7 @@ export function Footer() {
   {/* Logo */}
   <div className="flex items-center gap-10">
     <img
-      src="/ornatura.jpg"
+      src="/Ornatura.jpg"
       alt="Company Logo"
       className="h-20 w-20 object-contain"
     />
