@@ -21,17 +21,20 @@ export function ContactSection() {
     projectType: '',
   });
 
-  const [showDesktopDecor, setShowDesktopDecor] = useState(false);
+  const [showDecor, setShowDecor] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
-      // Always hide if actual device width is below 768px
-      setShowDesktopDecor(window.innerWidth >= 768);
+    const checkDevice = () => {
+      const isMobileUA = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      // Show only if:
+      // - actual desktop
+      // - or mobile forcing desktop site
+      setShowDecor(window.innerWidth >= 768 && (!isMobileUA || (isMobileUA && true)));
     };
 
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
   }, []);
 
   const handleChange = (
@@ -63,22 +66,25 @@ export function ContactSection() {
           </h2>
         </div>
 
-        <div className="relative flex items-center justify-center max-w-5xl mx-auto md:-mt-118 -mb-20 md:-mb-32 gap-6">
-  {/* Left Image */}
-  <img
-    src="/decor25.png"
-    alt="Decorative Left"
-    className="h-20 md:h-142 md:w-152 w-100 h-150 -mt-125 md:-mt-0 object-contain -scale-x-100 opacity-25"
-  />
-</div>
+        {/* Left Decorative Image */}
+        {showDecor && (
+          <div className="relative flex items-center justify-center max-w-5xl mx-auto md:-mt-118 -mb-20 md:-mb-32 gap-6">
+            <img
+              src="/decor25.png"
+              alt="Decorative Left"
+              className="h-20 md:h-142 md:w-152 w-100 h-150 -mt-125 md:-mt-0 object-contain -scale-x-100 opacity-25"
+            />
+          </div>
+        )}
 
-
-        {/* Background floating decor (safe to keep hidden on mobile) */}
-        <img
-          src="/decor63.png"
-          alt="Background Interior Design"
-          className="hidden md:block w-[350px] h-[700px] mt-50 -mb-150 -ml-30 md:mt-5 md:ml-62 md:-mb-151 opacity-50"
-        />
+        {/* Background floating decor */}
+        {showDecor && (
+          <img
+            src="/decor63.png"
+            alt="Background Interior Design"
+            className="w-[350px] h-[700px] mt-50 -mb-150 -ml-30 md:mt-5 md:ml-62 md:-mb-151 opacity-50"
+          />
+        )}
 
         {/* Main Contact Section */}
         <div className="relative flex flex-col lg:flex-row items-stretch gap-6 max-w-6xl h-[500px] mx-auto">
@@ -174,17 +180,15 @@ export function ContactSection() {
             </CardContent>
           </Card>
 
-          {/* Decorative Images (desktop only, blocked on mobile even with "desktop site") */}
-          {showDesktopDecor && (
+          {/* Decorative Images */}
+          {showDecor && (
             <div className="relative">
               <img
                 src="/decor63.png"
                 alt="Background Interior Design"
                 className="w-[350px] h-[700px] -mt-180 md:-mt-25 md:-ml-1 opacity-50 -scale-x-100"
               />
-
               <div className="absolute inset-80 bg-gradient-to-t from-gray-200/80 via-transparent to-gray-200/80"></div>
-
               <img
                 src="/decor70.png"
                 alt="Foreground Image"
