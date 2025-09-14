@@ -167,22 +167,25 @@ export function ContactSection() {
           {/* Image Section - No container */}
 
   {/* Background image (fills half side) */}
+  {/* Desktop-only Decorative Section */}
+<div className="hidden md:block relative">
   <img
     src="/decor63.png"
     alt="Background Interior Design"
-    className="hidden md:block w-[350px] h-[700px] -mt-180 md:-mt-25 md:-ml-5 opacity-50 -scale-x-100"
+    className="w-[350px] h-[700px] -mt-180 md:-mt-25 md:-ml-1 opacity-50 -scale-x-100"
   />
-  
 
   {/* Overlay */}
   <div className="absolute inset-80 bg-gradient-to-t from-gray-200/80 via-transparent to-gray-200/80"></div>
 
   {/* Foreground image (centered on top) */}
   <img
-  src="/decor70.png"
-  alt="Foreground Image"
-  className="hidden md:block absolute inset-0 max-w-[310px] h-[450px] md:ml-170 md:mt-1 opacity-90 object-contain pointer-events-none"
-/>
+    src="/decor70.png"
+    alt="Foreground Image"
+    className="absolute inset-0 max-w-[310px] h-[450px] md:ml-0 md:mt-1 opacity-90 object-contain pointer-events-none"
+  />
+</div>
+
 
 
 
