@@ -21,18 +21,17 @@ export function ContactSection() {
     projectType: '',
   });
 
-  const [isDesktopView, setIsDesktopView] = useState(false);
+  const [showDesktopDecor, setShowDesktopDecor] = useState(false);
 
   useEffect(() => {
-    const checkDesktop = () => {
-      const ua = navigator.userAgent;
-      const isMobile = /Mobi|Android|iPhone|iPad/i.test(ua);
-      setIsDesktopView(!isMobile || window.innerWidth >= 768);
+    const checkScreen = () => {
+      // Always hide if actual device width is below 768px
+      setShowDesktopDecor(window.innerWidth >= 768);
     };
 
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
   const handleChange = (
@@ -54,31 +53,32 @@ export function ContactSection() {
       id="contact"
       className={`relative py-62 top-25 -mt-10 md:mt-10 mx-auto md:-mb-15 ${diphylleia.className}`}
     >
+      <div className="absolute inset-10 bg-black/0"></div>
       <div className="container mx-auto px-4">
         <div className="text-center -mt-12 mb-20">
-          <h2 className={`${playwrite.className} text-3xl md:text-4xl font-extrabold text-gray-700`}>
+          <h2
+            className={`${playwrite.className} text-3xl md:text-4xl font-extrabold text-gray-700`}
+          >
             Start Your Dream Project
           </h2>
         </div>
 
-        {/* Left Decorative Image */}
-        <img src="/decor25.png" alt="Decorative Left" className=" h-20 md:h-142 md:w-152 w-100 h-150 -mt-125 md:-mt-117 -mb-20 md:-mb-150 md:ml-110 object-contain -scale-x-100 opacity-25" />
+        <div className="relative flex items-center justify-center max-w-5xl mx-auto md:-mt-118 -mb-20 md:-mb-32 gap-6">
+  {/* Left Image */}
+  <img
+    src="/decor25.png"
+    alt="Decorative Left"
+    className="h-20 md:h-142 md:w-152 w-100 h-150 -mt-125 md:-mt-0 object-contain -scale-x-100 opacity-25"
+  />
+</div>
 
-        {/* Background floating decor */}
-        {isDesktopView && (
-          <img
-            src="/decor63.png"
-            alt="Background Interior Design"
-            style={{
-              width: '350px',
-              height: '700px',
-              marginTop: '490px',
-              marginLeft: '242px',
-              marginBottom: '-631px',
-              opacity: 0.5,
-            }}
-          />
-        )}
+
+        {/* Background floating decor (safe to keep hidden on mobile) */}
+        <img
+          src="/decor63.png"
+          alt="Background Interior Design"
+          className="hidden md:block w-[350px] h-[700px] mt-50 -mb-150 -ml-30 md:mt-5 md:ml-62 md:-mb-151 opacity-50"
+        />
 
         {/* Main Contact Section */}
         <div className="relative flex flex-col lg:flex-row items-stretch gap-6 max-w-6xl h-[500px] mx-auto">
@@ -174,46 +174,21 @@ export function ContactSection() {
             </CardContent>
           </Card>
 
-          {/* Decorative Foreground */}
-          {isDesktopView && (
+          {/* Decorative Images (desktop only, blocked on mobile even with "desktop site") */}
+          {showDesktopDecor && (
             <div className="relative">
               <img
                 src="/decor63.png"
                 alt="Background Interior Design"
-                style={{
-                  width: '350px',
-                  height: '700px',
-                  marginTop: '-72px',
-                  marginLeft: '1px',
-                  opacity: 0.5,
-                  transform: 'scaleX(-1)',
-                }}
+                className="w-[350px] h-[700px] -mt-180 md:-mt-25 md:-ml-1 opacity-50 -scale-x-100"
               />
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '80px',
-                  bottom: '80px',
-                  left: '80px',
-                  right: '80px',
-                  background:
-                    'linear-gradient(to top, rgba(229,229,229,0.8), rgba(229,229,229,0) 50%, rgba(229,229,229,0.8))',
-                }}
-              ></div>
+
+              <div className="absolute inset-80 bg-gradient-to-t from-gray-200/80 via-transparent to-gray-200/80"></div>
+
               <img
                 src="/decor70.png"
                 alt="Foreground Image"
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  left: '0',
-                  width: '310px',
-                  height: '450px',
-                  marginTop: '1px',
-                  opacity: 0.9,
-                  objectFit: 'contain',
-                  pointerEvents: 'none',
-                }}
+                className="absolute inset-0 max-w-[310px] h-[450px] md:ml-0 md:mt-1 opacity-90 object-contain pointer-events-none"
               />
             </div>
           )}
