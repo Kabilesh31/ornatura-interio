@@ -47,28 +47,28 @@ export function Header() {
   // Nav link style
   const getNavStyle = () => {
     if (isHomePage || isServicesPage) return "text-white hover:text-white/80"
-    if (isGalleryPage)
-      return isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-gray-400"
+    if (isGalleryPage) return isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-white-400"
     return isScrolled ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/80"
   }
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500",
-        isGalleryPage
-          ? "bg-[#727a66] shadow-xl border-b border-primary/10"
-          : isHomePage || isServicesPage
-          ? isScrolled
-            ? "bg-[#727a66] shadow-xl border-b border-primary/10"
-            : "bg-transparent"
-          : isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-xl border-b border-primary/10"
-          : "bg-transparent"
-      )}
-    >
+   <header
+  className={cn(
+    "fixed top-0 w-full z-50 transition-all duration-500",
+    isGalleryPage
+      ? "bg-[#727a66] shadow-xl border-b border-primary/10" // always scrolled style for Gallery
+      : isHomePage || isServicesPage
+      ? isScrolled
+        ? "bg-[#727a66] shadow-xl border-b border-primary/10"
+        : "bg-transparent"
+      : isScrolled
+      ? "bg-background/95 backdrop-blur-md shadow-xl border-b border-primary/10"
+      : "bg-transparent"
+  )}
+>
+
       <div className="container-responsive py-3 sm:py-4">
-        <div className="flex items-center justify-start gap-6 sm:gap-60">
+        <div className="flex items-center justify-start gap-62">
           {/* Logo */}
           <div className="flex items-center space-x-3 group">
             <img
@@ -82,7 +82,7 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex flex-1 justify-center overflow-x-auto whitespace-nowrap px-2">
+          <NavigationMenu className="hidden lg:flex flex-1  justify-center ">
             <NavigationMenuList className="space-x-2">
               {/* Home */}
               <NavigationMenuItem>
@@ -186,7 +186,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden h-10 w-10 rounded-lg bg-grey text-chart-6 ml-43 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
+            className="lg:hidden h-10 w-10 rounded-lg bg-grey text-chart-6 hover:bg-primary/10 transition-all duration-300 hover:scale-110 z-50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -195,7 +195,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute left-1 top-full w-60 max-w-[90%] mx-4 rounded-xl shadow-2xl slide-down overflow-hidden bg-white z-40">
+          <div className="lg:hidden absolute left-1 top-full  w-60 max-w-[90%] mx-4 rounded-xl shadow-2xl slide-down overflow-hidden bg-white z-40">
             <nav className="flex flex-col p-4 space-y-1">
               {["Home", "About Us", "What We Do", "Gallery", "Enquiry"].map((item, idx) => {
                 if (item === "What We Do") {
