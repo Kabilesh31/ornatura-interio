@@ -654,23 +654,25 @@ const showPrev = () => {
 <section className="py-12 flex-1">
   <div className="container mx-auto px-4">
     {/* Category Buttons */}
-    <div className="flex flex-wrap justify-center gap-2 sm:gap-4 -mt-30 sm:-mt-20 mb-8 sm:mb-12">
-      {categories.map((category) => (
-        <Button
-          key={category.id}
-          variant={selectedCategory === category.id ? "default" : "outline"}
-          onClick={() => setSelectedCategory(category.id)}
-          className={cn(
-            `${diphylleia.className} font-extrabold text-xs sm:text-sm md:text-base px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 transition-all duration-300 hover:scale-105 border-[color:var(--muted)]`,
-            selectedCategory === category.id
-              ? "bg-[color:var(--primary)] text-white hover:bg-[color:var(--secondary)]"
-              : "text-[color:var(--foreground)]"
-          )}
-        >
-          {category.name}
-        </Button>
-      ))}
-    </div>
+    <div
+  className={`flex flex-wrap justify-center gap-4 -mt-14 mb-12 ${diphylleia.className}`}
+>
+  {categories.map((category) => (
+    <Button
+      key={category.id}
+      variant={selectedCategory === category.id ? "default" : "outline"}
+      onClick={() => setSelectedCategory(category.id)}
+      className={cn(
+        "transition-all duration-300 hover:scale-105 border-[color:var(--muted)]",
+        selectedCategory === category.id
+          ? "bg-[color:var(--primary)] text-white hover:bg-[color:var(--secondary)]"
+          : "text-[color:var(--foreground)]"
+      )}
+    >
+      {category.name}
+    </Button>
+  ))}
+</div>
 
     {/* Projects Grid - Masonry Layout */}
     <div className="columns-1 sm:columns-2 lg:columns-4 gap-1 space-y-5 sm:space-y-7 md:-mt-5">

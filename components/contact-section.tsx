@@ -64,7 +64,7 @@ export function ContactSection() {
         />
         
       </div>
-      <span id='contact'></span>
+      <span id='contact' className='mt-10'></span>
       
 
       <div  className="container mx-auto px-4">

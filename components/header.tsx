@@ -26,17 +26,50 @@ export function Header() {
   const isGalleryPage = pathname === "/gallery"
   const isHomePage = pathname === "/"
 
-  // Scroll effect
+  // Scroll effect + hash detection
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    const handleScroll = () => {
+      // Normal scroll behavior
+      if (
+        window.location.hash === "#about" ||
+        window.location.hash === "#contact"
+      ) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(window.scrollY > 50)
+      }
+    }
+
+    const handleHashChange = () => {
+      if (
+        window.location.hash === "#about" ||
+        window.location.hash === "#contact"
+      ) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(window.scrollY > 50)
+      }
+    }
+
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("hashchange", handleHashChange)
+
+    // Run once on mount
+    handleHashChange()
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("hashchange", handleHashChange)
+    }
   }, [])
 
   // Close desktop submenu on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (submenuRef.current && !submenuRef.current.contains(event.target as Node)) {
+      if (
+        submenuRef.current &&
+        !submenuRef.current.contains(event.target as Node)
+      ) {
         setIsSubMenuOpen(false)
       }
     }
@@ -47,10 +80,14 @@ export function Header() {
   // Nav link style
   const getNavStyle = () => {
     if (isHomePage || isServicesPage) return "text-white hover:text-white/80"
-    if (isGalleryPage) return isScrolled ? "text-white hover:text-white/80" : "text-gray-800 hover:text-white-400"
-    return isScrolled ? "text-gray-800 hover:text-gray-600" : "text-white hover:text-white/80"
+    if (isGalleryPage)
+      return isScrolled
+        ? "text-white hover:text-white/80"
+        : "text-gray-800 hover:text-white-400"
+    return isScrolled
+      ? "text-gray-800 hover:text-gray-600"
+      : "text-white hover:text-white/80"
   }
-
   return (
    <header
   className={cn(
