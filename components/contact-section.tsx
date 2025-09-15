@@ -59,7 +59,7 @@ export function ContactSection() {
         <img
           src="/copy1.png"
           alt="Background Interior Design"
-          className="w-[900] h-[75%] mt-118 mx-auto object-cover opacity-40"
+          className="hidden md:block w-[900] h-[75%] mt-118 mx-auto object-cover opacity-40"
           
         />
         

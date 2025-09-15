@@ -637,10 +637,11 @@ const showPrev = () => {
       
       {/* Center */}
       <img
-        src="/decor5.png"
-        alt="Decorative Center"
-        className=" h-20 ml-14 -mt-48 md:h-22 md:w-74 md:-mt-55 md:ml-90"
-      />
+  src="/decor5.png"
+  alt="Decorative Center"
+  className=" absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+             w-44 h-24 lg:w-68 lg:h-38 object-contain -mt-27"
+/>
 
       {/* Right */}
       
