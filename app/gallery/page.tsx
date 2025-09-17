@@ -1,15 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { cn } from "@/lib/utils"
-import { Playwrite_AU_VIC } from "next/font/google"
-import { Diphylleia } from "next/font/google"
+import { Playwrite_AU_VIC, Diphylleia } from "next/font/google"
 
 // ✅ Fonts
 const diphylleia = Diphylleia({
@@ -27,6 +26,7 @@ export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [previewIndex, setPreviewIndex] = useState<number | null>(null)
 
+  // ✅ Categories (added "before")
   const categories = [
     { id: "all", name: "All Projects" },
     { id: "living-room", name: "Living Room" },
@@ -36,6 +36,7 @@ export default function GalleryPage() {
     { id: "wooden", name: "Wooden" },
     { id: "reception", name: "Reception" },
     { id: "bathroom", name: "Bathroom" },
+    { id: "before", name: "Before" }, // ✅ new button
   ]
   const projects = [
     // example projects
@@ -344,7 +345,7 @@ export default function GalleryPage() {
     id: 68,
     title: " Dining Room",
     category: "dining",
-    image: "/din10.jpeg",
+    image: "/din10.jpg",
     description: "Sleek design with contemporary furniture and lighting",
     likes: 160,
     views: 2200,
@@ -353,7 +354,7 @@ export default function GalleryPage() {
     id: 69,
     title: "Cozy Family Dining",
     category: "dining",
-    image: "/din3.JPG",
+    image: "/din3.jpg",
     description: "Warm and inviting space for family meals",
     likes: 145,
     views: 2050,
@@ -389,7 +390,7 @@ export default function GalleryPage() {
     id: 73,
     title: "Scandinavian Dining",
     category: "dining",
-    image: "/din11.jpeg",
+    image: "/din11.jpg",
     description: "Functional and light-filled space with clean lines",
     likes: 172,
     views: 2250,
@@ -398,7 +399,7 @@ export default function GalleryPage() {
     id: 74,
     title: "Classic Dining Room",
     category: "dining",
-    image: "/din14.jpeg",
+    image: "/din14.jpg",
     description: "Timeless design with refined furniture and lighting",
     likes: 160,
     views: 2180,
@@ -407,7 +408,7 @@ export default function GalleryPage() {
     id: 75,
     title: "Bohemian Dining Room",
     category: "dining",
-    image: "/din13.jpeg",
+    image: "/din13.jpg",
     description: "Eclectic décor with vibrant colors and textures",
     likes: 155,
     views: 2120,
@@ -415,7 +416,7 @@ export default function GalleryPage() {
     id: 76,
     title: " Open Kitchen",
     category: "kitchen",
-    image: "/kit1.jpeg",
+    image: "/kit1.jpg",
     description: "Sleek and functional open-plan kitchen with island",
     likes: 180,
     views: 2500,
@@ -541,7 +542,7 @@ export default function GalleryPage() {
     id: 90,
     title: "Luxury Reception",
     category: "reception",
-    image: "/gallery/reception/recep8.JPG",
+    image: "/gallery/reception/recep8.jpg",
     description: " décor with premium finishes and lighting",
     likes: 200,
     views: 2750,
@@ -559,7 +560,7 @@ export default function GalleryPage() {
     id: 92,
     title: "Rustic Charm Reception",
     category: "reception",
-    image: "/gallery/reception/recep5.jpeg",
+    image: "/gallery/reception/recep5.jpg",
     description: "Cozy wooden accents and warm colors for rustic vibes",
     likes: 150,
     views: 2105,
@@ -568,7 +569,7 @@ export default function GalleryPage() {
     id: 93,
     title: "Scandinavian Reception",
     category: "reception",
-    image: "/gallery/reception/recep1.jpeg",
+    image: "/gallery/reception/recep1.jpg",
     description: "Bright and functional reception with clean lines",
     likes: 172,
     views: 2250,
@@ -610,7 +611,69 @@ const showPrev = () => {
       setPreviewIndex((previewIndex + 1) % filteredProjects.length)
     }
   }
+useEffect(() => {
+    if (selectedCategory !== "before") return;
 
+    const slider = document.querySelector<HTMLElement>(".before-after-slider");
+    const afterWrapper = document.querySelector<HTMLElement>(".after-wrapper");
+    const container = document.querySelector<HTMLElement>(".before-after-container");
+
+    if (!slider || !afterWrapper || !container) return;
+
+    let isDragging = false;
+
+    const moveSlider = (x: number) => {
+      const rect = container.getBoundingClientRect();
+      let offsetX = x - rect.left;
+      offsetX = Math.max(0, Math.min(offsetX, rect.width));
+
+      afterWrapper.style.clipPath = `inset(0 ${rect.width - offsetX}px 0 0)`;
+      slider.style.left = `${offsetX}px`;
+    };
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDragging = true;
+      moveSlider(e.clientX);
+    };
+    const onMouseMove = (e: MouseEvent) => {
+      if (isDragging) moveSlider(e.clientX);
+    };
+    const onMouseUp = () => {
+      isDragging = false;
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      isDragging = true;
+      moveSlider(e.touches[0].clientX);
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (isDragging) moveSlider(e.touches[0].clientX);
+    };
+    const onTouchEnd = () => {
+      isDragging = false;
+    };
+
+    const onClick = (e: MouseEvent) => moveSlider(e.clientX);
+
+    container.addEventListener("click", onClick);
+    container.addEventListener("mousedown", onMouseDown);
+    container.addEventListener("touchstart", onTouchStart);
+
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      container.removeEventListener("click", onClick);
+      container.removeEventListener("mousedown", onMouseDown);
+      container.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [selectedCategory]);
   return (
     <div className="min-h-screen flex flex-col relative bg-[color:var(--background)]">
       {/* Dimmed Background Image */}
@@ -708,8 +771,56 @@ const showPrev = () => {
     </div>
   </div>
 </section>
+{selectedCategory === "before" && (
+<section className="py-40 px-4 bg-[color:var(--background)]">
+  <div className="container mx-auto max-w-7xl -mt-25 relative">
+    <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-[color:var(--foreground)]">
+      See the Transformation
+    </h2>
 
+    <div className="relative w-full h-[36rem] before-after-container overflow-hidden  shadow-xl">
+      {/* Before image (fixed) */}
+      <img
+        src="/aft2.jpeg"
+        alt="Before"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
+      {/* After image overlay (clipped instead of resized) */}
+      <div
+        className="absolute inset-0 after-wrapper overflow-hidden"
+        style={{ clipPath: "inset(0 50% 0 0)" }}
+      >
+        <img
+          src="/bef5.jpeg"
+          alt="After"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Labels */}
+      <span className="absolute top-4 left-4 px-3 py-1 bg-white/70 rounded text-sm font-semibold z-20">
+        Before
+      </span>
+      <span className="absolute top-4 right-4 px-3 py-1 bg-white/70 rounded text-sm font-semibold z-20">
+        After
+      </span>
+
+      {/* Slider handle */}
+      <div
+        className="absolute top-0 h-full flex items-center justify-center z-10 cursor-ew-resize before-after-slider"
+        style={{ left: "50%" }}
+      >
+        {/* Vertical bar */}
+        <div className="w-1 bg-white/80 h-full absolute left-1/2 transform -translate-x-1/2" />
+        {/* Circle handle */}
+        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-300 absolute left-1/2 transform -translate-x-1/2 z-20 text-[10px] font-semibold text-gray-700 select-none">
+          Drag
+        </div>
+      </div>
+    </div>
+  </div>
+</section>)}
 
         <Footer />
       </div>
