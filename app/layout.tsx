@@ -5,6 +5,7 @@ import "./globals.css"
 
 // 👇 import your cursor
 import CustomCursor from "@/components/CustomCursor";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className="font-sans">
         {/* 👇 Add this once → works for all pages */}
         <CustomCursor />
+        <WhatsAppButton />
         {children}
       </body>
     </html>
