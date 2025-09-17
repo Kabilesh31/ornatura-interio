@@ -534,7 +534,7 @@ export default function GalleryPage() {
     id: 90,
     title: "Luxury Reception",
     category: "reception",
-    image: "/gallery/reception/recep8.jpg",
+    image: "/recep8.jpg",
     description: " décor with premium finishes and lighting",
     likes: 200,
     views: 2750,
