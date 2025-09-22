@@ -171,37 +171,31 @@ export function Footer() {
 
   <ul className={`space-y-4 text-sm ${diphylleia.className}`}>
     {/* Phone */}
-    <li className="flex items-center gap-2">
-      <Phone className="h-5 w-5 text-background/80 hover:text-background" />
+    <li className="flex items-center gap-4">
+      <Phone className="h-7 w-7 text-background/80 hover:text-background" />
       <span>+91 94874 35050</span>
     </li>
 
     {/* Email */}
-    <li className="flex items-center gap-2">
-      <Mail className="h-5 w-5 text-background/80 hover:text-background" />
+    <li className="flex mt-5 items-center gap-4">
+      <Mail className="h-7 w-7 mt-3 text-background/80 text-sm hover:text-background" />
       <span>ar.ornatura@gmail.com</span>
     </li>
 
     {/* Working Hours */}
-    <li className="flex flex-col gap-1">
-      <div className="flex items-start gap-2">
-        <Clock className="h-5 w-5 mt-1 text-background/80 hover:text-background" />
-        <span>Tue - Sat: 10:00 AM - 7:00 PM</span>
-      </div>
-      <div className="flex items-start gap-2">
-        <Clock className="h-5 w-5 mt-1 text-transparent" /> {/* placeholder for alignment */}
-        <span>Sun: 11:00 AM - 4:00 PM</span>
-      </div>
-      <div className="flex items-start gap-2">
-        <Clock className="h-5 w-5 mt-1 text-transparent" /> {/* placeholder */}
-        <span>Monday: Holiday</span>
-      </div>
-    </li>
+    <li className="flex items-center gap-4">
+  <Clock className="h-7 w-7 text-background/80 hover:text-background" />
+  <div className="flex flex-col gap-1 text-sm">
+    <span>Tue - Sat: 10:00 AM - 7:00 PM</span>
+    <span>Sun: 11:00 AM - 4:00 PM</span>
+    <span>Monday: Holiday</span>
+  </div>
+</li>
 
     {/* Address */}
     <li className="flex flex-col gap-1">
-      <div className="flex items-start gap-2">
-        <MapPin className="h-5 w-5 mt-1 text-background/80 hover:text-background" />
+      <div className="flex items-start gap-4">
+        <MapPin className="h-8 w-8 mt-4 text-background/80 hover:text-background" />
         <span>
           347, DS Complex, Nehru Street, Ramnagar Street
           <br />
@@ -210,7 +204,7 @@ export function Footer() {
           Tamil Nadu, India
         </span>
       </div>
-      <p className="ml-7 text-lg text-background/70">
+      <p className="ml-10 text-lg text-background/70">
         Note: Visit us on appointment basis
       </p>
     </li>

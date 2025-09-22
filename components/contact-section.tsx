@@ -77,7 +77,7 @@ export function ContactSection() {
     2xl:text-center 2xl:ml-188
   "
 >
-  <p className="mt-2 text-base md:text-xl text-gray-700">
+  <p className="mt-2 text-base md:text-lg text-gray-700">
     Fill out the below form and one of us will get in touch with you shortly.
   </p>
 </div>
@@ -123,7 +123,7 @@ export function ContactSection() {
     <img
       src="/decor08.png"
       alt="Interior Design"
-      className="relative rounded-lg md:-left-10 -top-10 shadow-lg lg:mt-5 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[350px] h-64 sm:h-80 md:h-[400px] lg:h-[580px] object-cover z-10"
+      className="relative rounded-lg md:-left-10 -top-10 shadow-lg lg:mt-5 w-full max-w-sm sm:max-w-md xl:max-w-[410px] lg:max-w-[340px] h-64 sm:h-80 md:h-[400px] lg:h-[580px] object-cover z-10"
     />
   </div>
 
