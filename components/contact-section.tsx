@@ -95,7 +95,7 @@ export function ContactSection() {
   className="
     hidden sm:block
     absolute
-    -top-40
+    -top-35
 
     /* Mobile (base) */
     left-1/2 -translate-x-1/2 w-[100%] h-[400px]
@@ -107,10 +107,10 @@ export function ContactSection() {
     lg:left-[5%] lg:translate-x-0 lg:w-[95%] lg:h-[800px]
 
     /* Nest Hub Max (≥1280px) */
-    xl:-left-[7%] xl:translate-x-0 xl:w-[90%] xl:h-[800px]
+    xl:-left-[7%] xl:translate-x-0 xl:w-[90%] xl:h-[780px]
 
     /* Large desktops (≥1536px) */
-    2xl:left-[10%] 2xl:translate-x-0 2xl:w-[85%] 2xl:h-[790px]
+    2xl:left-[10%] 2xl:translate-x-0 2xl:w-[85%] 2xl:h-[770px]
 
     max-w-none
     opacity-65
