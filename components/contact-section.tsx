@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MessageSquare } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 import { Diphylleia, Playwrite_AU_VIC } from 'next/font/google';
 
 const diphylleia = Diphylleia({ subsets: ['latin'], weight: ['400'] });
@@ -21,22 +20,10 @@ export function ContactSection() {
     projectType: '',
   });
 
-  const [showDesktopDecor, setShowDesktopDecor] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => {
-      setShowDesktopDecor(window.innerWidth >= 768);
-    };
-
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
-  }, []);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
@@ -44,106 +31,187 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log('Submitting contact form: ', formData);
   };
 
   return (
-    <section
-      
-      className={`relative  py-50 ${diphylleia.className}`}
-    >
-      {/* Background Image */}
-      <div   className="absolute inset-0 -z-10">
-
-        
-        <img
-          src="/copy1.png"
-          alt="Background Interior Design"
-          className="hidden md:block w-[900] h-[75%] mt-118 mx-auto object-cover opacity-40"
-          
-        />
-        
-      </div>
-      <span id='contact' className='mt-10'></span>
-      
-
-      <div  className="container mx-auto px-4">
-        {/* Section Title */}
-        <div className="text-center mb-20 md:mb-10">
-           <img
+    <section className={`relative py-16 md:py-20 bg-white ${diphylleia.className}`}>
+  <div className="container mx-auto px-4">
+    {/* Decorative Crown */}
+    {/* <img
       src="/decor25.png"
       alt="Decorative Crown"
-      className="absolute top-8 sm:-top-16 md:top-10 left-1/2 -translate-x-1/2 w-12 sm:w-16 w-180  md:w-24 md:h-130 lg:w-520 object-contain opacity-30"
+      className="absolute -top-18 sm:-top-16 md:-top-19 left-1/2 -translate-x-1/2 w-85 sm:w-96 md:w-24 lg:w-122 object-contain opacity-30"
+    /> */}
+
+    {/* Main Heading */}
+    <h2
+      id="contact"
+      className={`${playwrite.className} text-3xl md:text-4xl text-center mt-2 md:mt-0 mb-10 md:mb-24 font-extrabold text-gray-700`}
+    >
+      Start Your Dream Project
+    </h2>
+
+    {/* Subtext */}
+    <div
+  className="
+    text-center
+    max-w-lg mx-auto mb-10
+    
+    /* Mobile (default) */
+    justify-center
+
+    /* Tablet (sm: ≥640px) */
+    sm:text-left sm:ml-10
+
+    /* Medium (md: ≥768px) */
+    md:text-left md:ml-100
+
+    /* Nest Hub / Desktop (lg: ≥1024px) */
+    lg:text-center lg:ml-120
+
+    /* Larger desktops (xl: ≥1280px) */
+    xl:text-center xl:ml-188
+
+    
+  "
+>
+  {/* <p className="text-base md:text-xl text-gray-700">
+    Are you embarking on a new space or renovation project and need assistance?
+  </p> */}
+  <p className="mt-2 text-base md:text-xl text-gray-700">
+    Fill out the below form and one of us will get in touch with you shortly.
+  </p>
+</div>
+
+
+    {/* Grid layout */}
+ <div className="w-full px-4 sm:px-4 md:px-4 lg:px-4 xl:px-35 grid grid-cols-1 lg:grid-cols-2 gap-0 items-center max-w-[100%] mx-auto">
+  {/* Left: Image with decorative PNG */}
+  <div className="relative flex justify-center lg:justify-end w-full">
+    {/* Decorative PNG */}
+    <img
+      src="/last03.png"
+      alt="Decorative Background"
+      className="
+        hidden sm:block
+        absolute
+        -top-40
+
+        /* Mobile (base) */
+        left-1/2 -translate-x-1/2
+
+        /* Small tablets (≥640px) */
+        sm:left-[40%] sm:-translate-x-[40%] sm:h-[500px]
+
+        /* Nest Hub / Desktop (≥1024px) */
+        lg:left-[5%] lg:translate-x-0 lg:h-[800px]
+
+        /* Extra large desktops (≥1440px) */
+        xl:left-[10%] xl:translate-x-0 xl:h-[800px]
+
+        w-[100%] lg:w-[95%] xl:w-[90%]
+        max-w-none
+        opacity-65
+        z-0
+      "
     />
-          <h2  className={`${playwrite.className} text-3xl md:text-4xl md:mt-38 mt-16 mb-20 md:mb-40 font-extrabold text-gray-700`}>
-            Start Your Dream Project
-          </h2>
-        </div>
 
-        {/* Card + Foreground Image Container */}
-<div className="relative flex flex-col lg:flex-row items-stretch justify-center gap-5 -mb-30 max-w-3xl mx-auto">
-  {/* Card - 75% width on large screens, 100% on small screens */}
-  <Card className="w-full lg:w-[75%] bg-white/90 backdrop-blur-md border border-primary/20 shadow-lg hover:shadow-2xl transition-all duration-500">
-    <CardHeader className="text-center pb-4">
-      <div className="flex items-center justify-center gap-3">
-        <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-md">
-          <MessageSquare className="w-6 h-6 text-white" />
-        </div>
-        <CardTitle
-          className={`text-2xl md:text-3xl font-bold text-gray-800 ${diphylleia.className}`}
-        >
-          Send Us a Message
-        </CardTitle>
-      </div>
-    </CardHeader>
+    {/* Main photo */}
+    <img
+      src="/decor08.png"
+      alt="Interior Design"
+      className="relative rounded-lg md:-left-10 -top-8 shadow-lg lg:mt-5 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[350px] h-64 sm:h-80 md:h-[400px] lg:h-[580px] object-cover z-10"
+    />
+  </div>
 
-    <CardContent>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input name="name" value={formData.name} onChange={handleChange} placeholder="Full Name *" required />
-          <Input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email *" required />
-        </div>
+  {/* Right: Contact Form */}
+ <Card className="bg-white border border-gray-200 p-6 md:p-8 lg:p-12 w-full max-w-full mx-auto rounded-none shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+    <h2
+      className={`${playwrite.className} text-2xl md:text-5xl font-bold text-gray-800 text-center mb-6 md:mb-8`}
+    >
+      Contact Us
+    </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Phone Number" />
-          <select name="service" value={formData.service} onChange={handleChange} required className="w-full px-3 py-2 border border-gray-300 rounded-md">
-            <option value="">Select a service *</option>
-            <option value="interior-design">Interior Design</option>
-            <option value="renovation">Renovation</option>
-            <option value="architecture">Architecture</option>
-            <option value="landscape">Landscape</option>
-          </select>
-        </div>
-
-        <select name="projectType" value={formData.projectType} onChange={handleChange} required className="w-full px-3 py-2 border border-gray-300 rounded-md">
-          <option value="">Select project type *</option>
-          <option value="apartment">Apartment</option>
-          <option value="villa">Villa</option>
-          <option value="others">Others</option>
-        </select>
-
-        <Textarea name="message" value={formData.message} onChange={handleChange} rows={6} required placeholder="Project Details *" />
-
-        <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-primary mt-9 to-primary/80 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-          Send Message
-          <MessageSquare className="h-4 w-4" />
-        </Button>
-      </form>
-    </CardContent>
-  </Card>
-
-  {/* Decor Image - 50% width on large screens, 100% on small screens */}
- {showDesktopDecor && (
-    <div className="w-full lg:w-[45%] flex items-center justify-center">
-      <img
-        src="/decor70.png"
-        alt="Foreground Decor"
-        className="w-full h-full object-contain"
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 w-full">
+      <Input
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        placeholder="Enter your Name"
+        required
+        className="border-b border-gray-400 rounded-none focus:ring-0 focus:border-black py-2 w-full"
       />
-    </div>
-          )}
-        </div>
+      <Input
+        name="phone"
+        type="tel"
+        value={formData.phone}
+        onChange={handleChange}
+        placeholder="Enter your phone number"
+        required
+        className="border-b border-gray-400 rounded-none focus:ring-0 focus:border-black py-2 w-full"
+      />
+      <Input
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Enter a valid email address"
+        required
+        className="border-b border-gray-400 rounded-none focus:ring-0 focus:border-black py-2 w-full"
+      />
+
+      <select
+        name="service"
+        value={formData.service}
+        onChange={handleChange}
+        required
+        className="w-full border-b border-gray-400 rounded-none bg-transparent py-2 focus:ring-0 focus:border-black"
+      >
+        <option value="">Select a Service *</option>
+        <option value="interior-design">Interior Design</option>
+        <option value="renovation">Renovation</option>
+        <option value="architecture">Architecture</option>
+        <option value="landscape">Landscape</option>
+      </select>
+
+      <select
+        name="projectType"
+        value={formData.projectType}
+        onChange={handleChange}
+        required
+        className="w-full border-b border-gray-400 rounded-none bg-transparent py-2 focus:ring-0 focus:border-black"
+      >
+        <option value="">Select Project Type *</option>
+        <option value="apartment">Apartment</option>
+        <option value="villa">Villa</option>
+        <option value="others">Others</option>
+      </select>
+
+      <Textarea
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        placeholder="Enter your message"
+        rows={3}
+        required
+        className="border-b border-gray-400 rounded-none focus:ring-0 focus:border-black py-2 w-full"
+      />
+
+      <div className="text-center mt-4">
+        <Button
+          type="submit"
+          className="px-5 py-2 border border-black bg-white text-black font-semibold hover:bg-gray-500 hover:text-white transition"
+        >
+          SUBMIT
+        </Button>
       </div>
-    </section>
+    </form>
+  </Card>
+</div>
+
+  </div>
+</section>
+
   );
 }

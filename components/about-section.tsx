@@ -17,7 +17,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-27 -mt-10 -mb-45 - overflow-hidden bg-[#e9e8e6] text-primary"
+      className="relative py-27 -mt-10 -mb-15 - overflow-hidden bg-[#e9e8e6] text-primary"
     >
       {/* Video Background */}
       <video
