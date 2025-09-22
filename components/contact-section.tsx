@@ -67,22 +67,21 @@ export function ContactSection() {
     /* Medium (md: ≥768px) */
     md:text-left md:ml-100
 
-    /* Nest Hub / Desktop (lg: ≥1024px) */
+    /* Nest Hub (lg: ≥1024px) */
     lg:text-center lg:ml-120
 
-    /* Larger desktops (xl: ≥1280px) */
-    xl:text-center xl:ml-188
+    /* Nest Hub Max (xl: ≥1280px) */
+    xl:text-center xl:ml-150
 
-    
+    /* Larger desktops (2xl: ≥1536px) */
+    2xl:text-center 2xl:ml-188
   "
 >
-  {/* <p className="text-base md:text-xl text-gray-700">
-    Are you embarking on a new space or renovation project and need assistance?
-  </p> */}
   <p className="mt-2 text-base md:text-xl text-gray-700">
     Fill out the below form and one of us will get in touch with you shortly.
   </p>
 </div>
+
 
 
     {/* Grid layout */}
@@ -90,38 +89,41 @@ export function ContactSection() {
   {/* Left: Image with decorative PNG */}
   <div className="relative flex justify-center lg:justify-end w-full">
     {/* Decorative PNG */}
-    <img
-      src="/last03.png"
-      alt="Decorative Background"
-      className="
-        hidden sm:block
-        absolute
-        -top-40
+   <img
+  src="/last03.png"
+  alt="Decorative Background"
+  className="
+    hidden sm:block
+    absolute
+    -top-40
 
-        /* Mobile (base) */
-        left-1/2 -translate-x-1/2
+    /* Mobile (base) */
+    left-1/2 -translate-x-1/2 w-[100%] h-[400px]
 
-        /* Small tablets (≥640px) */
-        sm:left-[40%] sm:-translate-x-[40%] sm:h-[500px]
+    /* Small tablets (≥640px) */
+    sm:left-[40%] sm:-translate-x-[40%] sm:w-[70%] sm:h-[500px]
 
-        /* Nest Hub / Desktop (≥1024px) */
-        lg:left-[5%] lg:translate-x-0 lg:h-[800px]
+    /* Tablets / Desktop (≥1024px) */
+    lg:left-[5%] lg:translate-x-0 lg:w-[95%] lg:h-[800px]
 
-        /* Extra large desktops (≥1440px) */
-        xl:left-[10%] xl:translate-x-0 xl:h-[800px]
+    /* Nest Hub Max (≥1280px) */
+    xl:-left-[7%] xl:translate-x-0 xl:w-[90%] xl:h-[800px]
 
-        w-[100%] lg:w-[95%] xl:w-[90%]
-        max-w-none
-        opacity-65
-        z-0
-      "
-    />
+    /* Large desktops (≥1536px) */
+    2xl:left-[10%] 2xl:translate-x-0 2xl:w-[85%] 2xl:h-[790px]
+
+    max-w-none
+    opacity-65
+    z-0
+  "
+/>
+
 
     {/* Main photo */}
     <img
       src="/decor08.png"
       alt="Interior Design"
-      className="relative rounded-lg md:-left-10 -top-8 shadow-lg lg:mt-5 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[350px] h-64 sm:h-80 md:h-[400px] lg:h-[580px] object-cover z-10"
+      className="relative rounded-lg md:-left-10 -top-10 shadow-lg lg:mt-5 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[350px] h-64 sm:h-80 md:h-[400px] lg:h-[580px] object-cover z-10"
     />
   </div>
 
