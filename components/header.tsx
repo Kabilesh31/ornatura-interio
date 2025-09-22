@@ -83,9 +83,9 @@ export function Header() {
     if (isGalleryPage)
       return isScrolled
         ? "text-white hover:text-white/80"
-        : "text-gray-800 hover:text-white-400"
+        : "text-white/90 hover:text-white-400"
     return isScrolled
-      ? "text-gray-800 hover:text-gray-600"
+      ? "text-gray-800 hover:text-white-80"
       : "text-white hover:text-white/80"
   }
   return (
