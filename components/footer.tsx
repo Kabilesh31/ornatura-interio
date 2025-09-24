@@ -171,20 +171,20 @@ export function Footer() {
 
   <ul className={`space-y-4 text-sm ${diphylleia.className}`}>
     {/* Phone */}
-    <li className="flex items-center gap-3">
-      <Phone className="2xl:h-6 2xl:w-6 mt-3 xl:h-7 xl:w-7 lg:h-6 lg:w-6 text-background/80 hover:text-background" />
-      <span>+91 94874 35050</span>
+    <li className="flex items-center gap-4.5">
+      <Phone className="2xl:h-5 2xl:w-5 mt-3 xl:h-6 xl:w-6 lg:h-5 lg:w-5 text-background/80 hover:text-background" />
+      <span className="mt-2">+91 94874 35050</span>
     </li>
 
     {/* Email */}
-    <li className="flex mt-5 items-center gap-4.5">
-      <Mail className="2xl:h-6 2xl:w-6  xl:h-7 xl:w-7 lg:h-6 lg:w-6 mt-2 text-background/80 text-sm hover:text-background" />
-      <span>ar.ornatura@gmail.com</span>
+    <li className="flex mt-5 items-center gap-5">
+      <Mail className="2xl:h-5 2xl:w-5  xl:h-6 xl:w-6 lg:h-5 lg:w-5 mt-2 text-background/80 text-sm hover:text-background" />
+      <span className="mt-1">ar.ornatura@gmail.com</span>
     </li>
 
     {/* Working Hours */}
-    <li className="flex items-center gap-4">
-  <Clock className="2xl:h-6 2xl:w-6 xl:h-7 xl:w-7 lg:h-7 lg:w-7 text-background/80 hover:text-background" />
+    <li className="flex items-center gap-5">
+  <Clock className="2xl:h-5 2xl:w-5 xl:h-6 xl:w-6 lg:h-6 lg:w-6 text-background/80 hover:text-background" />
   <div className="flex flex-col gap-1 text-sm">
     <span>Tue - Sat: 10:00 AM - 7:00 PM</span>
     <span>Sun: 11:00 AM - 4:00 PM</span>
@@ -194,8 +194,8 @@ export function Footer() {
 
     {/* Address */}
     <li className="flex flex-col gap-1">
-      <div className="flex items-start gap-4">
-        <MapPin className="2xl:h-7 2xl:w-7 mt-3 xl:h-9 xl:w-9 lg:h-10 lg:w-10 text-background/80 hover:text-background" />
+      <div className="flex items-start gap-4.5">
+        <MapPin className="2xl:h-6 2xl:w-6 mt-3 xl:h-8 xl:w-8 lg:h-9 lg:w-9 text-background/80 hover:text-background" />
         <span>
           347, DS Complex, Nehru Street, Ramnagar Street
           <br />
