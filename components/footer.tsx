@@ -172,19 +172,19 @@ export function Footer() {
   <ul className={`space-y-4 text-sm ${diphylleia.className}`}>
     {/* Phone */}
     <li className="flex items-center gap-3">
-      <Phone className="2xl:h-7 2xl:w-7 mt-4 xl:h-8 xl:w-8 lg:h-8 lg:w-8 text-background/80 hover:text-background" />
+      <Phone className="2xl:h-6 2xl:w-6 mt-3 xl:h-7 xl:w-7 lg:h-6 lg:w-6 text-background/80 hover:text-background" />
       <span>+91 94874 35050</span>
     </li>
 
     {/* Email */}
-    <li className="flex mt-5 items-center gap-5">
-      <Mail className="2xl:h-7 2xl:w-7  xl:h-8 xl:w-8 lg:h-8 lg:w-8 mt-3 text-background/80 text-sm hover:text-background" />
+    <li className="flex mt-5 items-center gap-4.5">
+      <Mail className="2xl:h-6 2xl:w-6  xl:h-7 xl:w-7 lg:h-6 lg:w-6 mt-2 text-background/80 text-sm hover:text-background" />
       <span>ar.ornatura@gmail.com</span>
     </li>
 
     {/* Working Hours */}
     <li className="flex items-center gap-4">
-  <Clock className="2xl:h-7 2xl:w-7 xl:h-9 xl:w-9 lg:h-10 lg:w-10 text-background/80 hover:text-background" />
+  <Clock className="2xl:h-6 2xl:w-6 xl:h-7 xl:w-7 lg:h-7 lg:w-7 text-background/80 hover:text-background" />
   <div className="flex flex-col gap-1 text-sm">
     <span>Tue - Sat: 10:00 AM - 7:00 PM</span>
     <span>Sun: 11:00 AM - 4:00 PM</span>
@@ -195,7 +195,7 @@ export function Footer() {
     {/* Address */}
     <li className="flex flex-col gap-1">
       <div className="flex items-start gap-4">
-        <MapPin className="2xl:h-8 2xl:w-8 mt-4 xl:h-11 xl:w-11 lg:h-15 lg:w-15 text-background/80 hover:text-background" />
+        <MapPin className="2xl:h-7 2xl:w-7 mt-3 xl:h-9 xl:w-9 lg:h-10 lg:w-10 text-background/80 hover:text-background" />
         <span>
           347, DS Complex, Nehru Street, Ramnagar Street
           <br />
