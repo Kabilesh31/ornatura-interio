@@ -77,7 +77,7 @@ export function ContactSection() {
     2xl:text-center 2xl:ml-188
   "
 >
-  <p className="mt-2 text-base md:text-lg text-gray-700">
+  <p className="mt-2 mb-17 md:mb-0 text-base md:text-lg text-gray-700">
     Fill out the below form and one of us will get in touch with you shortly.
   </p>
 </div>

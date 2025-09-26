@@ -78,37 +78,9 @@ export function Footer() {
       {/* Footer Content */}
       <div className="container mx-auto px-6 mt-28">
         {/* Top Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold mb-4 md:-mt-50 text-xl" >Services</h3>
-            <ul className={`space-y-3 text-sm ${diphylleia.className}`}>
-  <li>
-    <a href="#interior" className="text-background/80 hover:text-background transition-colors">
-      Interior Design
-    </a>
-  </li>
-  <li>
-    <a href="#renovation" className="text-background/80 hover:text-background transition-colors">
-      Renovation
-    </a>
-  </li>
-  <li>
-    <a href="#architecture" className="text-background/80 hover:text-background transition-colors">
-      Architecture
-    </a>
-  </li>
-  <li>
-    <a href="#landscape" className="text-background/80 hover:text-background transition-colors">
-      Landscape
-    </a>
-  </li>
-</ul>
-
-          </div>
-
-          {/* Quick Links */}
-          <div className="md:-mt-50 md:-ml-54">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
+ {/* Quick Links */}
+                   <div className="md:-mt-50 md:-ml-0">
   <h3 className="font-semibold mb-4 text-xl">Quick Links</h3>
   <ul className={`space-y-2 text-sm ${diphylleia.className}`}>
     <li>
@@ -163,28 +135,61 @@ export function Footer() {
     </li>
   </ul>
 </div>
+          {/* Services */}
+          <div className="md:-ml-50">
+            <h3 className="font-semibold mb-4  md:-mt-50 text-xl" >Services</h3>
+            <ul className={`space-y-3 text-sm ${diphylleia.className}`}>
+  <li>
+    <a href="#interior" className="text-background/80 hover:text-background transition-colors">
+      Interior Design
+    </a>
+  </li>
+  <li>
+    <a href="#renovation" className="text-background/80 hover:text-background transition-colors">
+      Renovation
+    </a>
+  </li>
+  <li>
+    <a href="#architecture" className="text-background/80 hover:text-background transition-colors">
+      Architecture
+    </a>
+  </li>
+  <li>
+    <a href="#landscape" className="text-background/80 hover:text-background transition-colors">
+      Landscape
+    </a>
+  </li>
+</ul>
+
+          </div>
+
+         
+ 
 
 
           {/* Contact Info */}
-   <div className="md:-mt-55 md:ml-20">
+   
+
+        </div>
+<div className="md:-mt-55 mt-12 2xl:ml-273 xl:ml-234 lg:ml-195">
   <h3 className="font-semibold mb-4 text-xl">Contact Us</h3>
 
   <ul className={`space-y-4 text-sm ${diphylleia.className}`}>
     {/* Phone */}
     <li className="flex items-center gap-4.5">
-      <Phone className="2xl:h-5 2xl:w-5 mt-3 xl:h-6 xl:w-6 lg:h-5 lg:w-5 text-background/80 hover:text-background" />
+      <Phone className="2xl:h-5 2xl:w-5 mt-3 xl:h-6 xl:w-6 lg:h-5 lg:w-5 h-5 w-5 text-background/80 hover:text-background" />
       <span className="mt-2">+91 94874 35050</span>
     </li>
 
     {/* Email */}
     <li className="flex mt-5 items-center gap-5">
-      <Mail className="2xl:h-5 2xl:w-5  xl:h-6 xl:w-6 lg:h-5 lg:w-5 mt-2 text-background/80 text-sm hover:text-background" />
+      <Mail className="2xl:h-5 2xl:w-5  xl:h-6 xl:w-6 lg:h-5 lg:w-5 mt-2 h-5 w-5 text-background/80 text-sm hover:text-background" />
       <span className="mt-1">ar.ornatura@gmail.com</span>
     </li>
 
     {/* Working Hours */}
     <li className="flex items-center gap-5">
-  <Clock className="2xl:h-5 2xl:w-5 xl:h-6 xl:w-6 lg:h-6 lg:w-6 text-background/80 hover:text-background" />
+  <Clock className="2xl:h-5 2xl:w-5 xl:h-6 xl:w-6 h-5 w-5 lg:h-6 lg:w-6 text-background/80 hover:text-background" />
   <div className="flex flex-col gap-1 text-sm">
     <span>Tue - Sat: 10:00 AM - 7:00 PM</span>
     <span>Sun: 11:00 AM - 4:00 PM</span>
@@ -195,7 +200,7 @@ export function Footer() {
     {/* Address */}
     <li className="flex flex-col gap-1">
       <div className="flex items-start gap-4.5">
-        <MapPin className="2xl:h-6 2xl:w-6 mt-3 xl:h-8 xl:w-8 lg:h-9 lg:w-9 text-background/80 hover:text-background" />
+        <MapPin className="2xl:h-6 2xl:w-6 mt-3 h-6 w-6 xl:h-8 xl:w-8 lg:h-9 lg:w-9 text-background/80 hover:text-background" />
         <span>
           347, DS Complex, Nehru Street, Ramnagar Street
           <br />
@@ -210,9 +215,6 @@ export function Footer() {
     </li>
   </ul>
 </div>
-
-        </div>
-
         {/* Newsletter Row */}
         <div className="mt-12 text-center md:-mt-30 md:mb-10 ">
           <h3 className="font-semibold text-xl mb-4">Stay Updated</h3>
